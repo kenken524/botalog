@@ -1,59 +1,88 @@
 # アプリケーション名
- 
-Botalog
- 
- 
+**Botalog**
+
 # アプリケーション概要
  
 観葉植物、盆栽、塊根植物などの育成方法、育成環境を記録し植物の生育過程を楽しむ。
-ユーザー同士でコミュニケーションをとり、より良い育成方法を探求できる。
+<br>ユーザー同士でコミュニケーションをとり、より良い育成方法を探求できる。
 
 # URL
+
+ https://botalog.onrender.com/
+ <br>#制作中
  
-"hoge"のセールスポイントや差別化などを説明する
+# テスト用アカウント
+- basic認証パスワード:2222
+- basic認証ID:admin
+- メールアドレス:test@test
+- パスワード:test1234
+
+# 利用方法
+ ## 植物登録、育成記録
+ 1. トップページのヘッダーからユーザー新規登録をする。
+
+ 2. 植物登録ボタンから現在育てている観葉植物、塊根植物、盆栽などを登録する。
+
+ 3. 育成記録ボタンから登録した植物の育成記録を登録する。
+
+ 4. 登録した植物の育成記録を写真一覧で見ることにより植物の成長を楽しむ。
+
+ ## ユーザーコミュニケーション
+ 1. トップページ、またはヘッダーの検索フォームで育成記録を見ていいね、コメントをしてコミュニケーションを取りあい育成に対するモチベーションを上げる。
  
-# Requirement
+ 2. ユーザーが登録した植物をお気に入り登録し育成記録の一覧を見て育成方法を学ぶ。
  
-"hoge"を動かすのに必要なライブラリなどを列挙する
+ 3. より細かく質問、コミュニケーションを取るためにダイレクトメッセージを利用する。
  
-* huga 3.5.2
-* hogehuga 1.0.2
  
-# Installation
+# アプリケーションを作成した背景
  
-Requirementで列挙したライブラリなどのインストール方法を説明する
+ 自分自身の趣味が園芸で、始める際にどのように育成を始めれば良いのか調べるのが大変だったことがきっかけ。
+ <br>他者の育成記録を一覧で見ることができればより育成方法が学びやすいと考えた。
+ <br>また同じ趣味のユーザー同士でコミュニケーションを取ることで園芸を飽きることなく続けられると考えこのアプリケーション作成に至った。
  
-```bash
-pip install huga_package
-```
+# 洗い出した要件
  
-# Usage
+https://docs.google.com/spreadsheets/d/1eD7ZiGhF3MCuHVAng_Yr95TcZNLPs6KZ-NXJPyaTmLU/edit?usp=sharing
  
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+# 実装した機能についての画像やGIFおよびその説明
+ #現在制作中
+
+# 実装予定の機能
+- トップページ（登録植物、育成記録一覧）
+- 植物登録、育成記録登録
+- ユーザーマイページ
+- ユーザーおよび植物の編集削除機能
+- SNS機能（メッセージ、いいね、コメント）
+
+
+# データベース設計
  
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
+[![Image from Gyazo](https://i.gyazo.com/0f48794f2a698d34b24394d24657e957.png)](https://gyazo.com/0f48794f2a698d34b24394d24657e957)
+
+# 画面遷移図
  
-# Note
+[![Image from Gyazo](https://i.gyazo.com/63ca3bcb58adb3866ea5e2f7c4848946.png)](https://gyazo.com/63ca3bcb58adb3866ea5e2f7c4848946)
  
-注意点などがあれば書く
+# 開発環境
+- Ruby 
+- Ruby on Rails 
+- MySQL
+- postgresql
+- GitHub
+- Render
+- Visual Studio Code
+- draw.io
  
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
+# ローカルでの動作方法
+以下のコマンドを順に実行
+<br> % git clone https://github.com/kenken524/botalog.git
+<br> % cd botalog
+<br> % bundle install
+<br> % yarn install
+
+# 工夫したポイント
+最初は植物の育成記録機能だけを考えていた。ですが植物を育成している中でよくSNSを見て他のユーザーの植物などをよく見て参考にしていることに気が付きSNS機能の実装も決めた。
+コミュニケーションを気軽にできるアプリ開発に注力した。
+
+#制作中
