@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Plants", type: :request do
-
+RSpec.describe 'Plants', type: :request do
 end

@@ -6,3 +6,88 @@ main{
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
 }
+
+.gallery{
+  display: flex; /* 親要素をフレックスコンテナにする */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  padding-bottom: 10px;
+}
+
+.gallery-block {
+  width: 100%; /* ブロックの幅を設定 */
+  overflow: hidden; /* ブロック外のコンテンツを非表示にする */
+  position: relative; /* ブロックの中に画像を配置するために必要 */
+  border: solid;
+  border-color: gray;
+  border-radius: 5px;
+}
+
+.gallery-block::before {
+  content: "";
+  padding-top: 100%; /* アスペクト比を指定（高さを横幅の100%に設定） */
+  display: block;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* 画像の幅を100%に設定 */
+  height: 100%; /* 画像の高さを100%に設定 */
+  object-fit: cover; /* 画像をブロックに合わせてカバー表示 */
+  object-position: center center; /* 画像を中央に配置 */
+}
+
+.gallery-item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+.gallery-item-info .user-thumbnail {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-thumbnail{
+  object-fit: cover;
+}
+
+.gallery-item-info .user-name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.load-more {
+  text-align: center;
+  padding: 20px 0;
+}
+.load-more button {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.nav-tabs a{
+  color: white;
+  background-color: #198754;
+}
+
+.nav:hover a{
+  color: white;
+  background-color: #198754;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
