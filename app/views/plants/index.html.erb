@@ -36,10 +36,10 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-3">
           <div class="col gallery">
 				    <div class="gallery-block">
-              <img src="https://1.bp.blogspot.com/-LgVrdZ34XRM/XAnwY68nMrI/AAAAAAABQxA/P71YbDy3z3YCWiX9rLRsPQPw0iUzevxGwCLcBGAs/s800/stand_naname3_man.png" alt="ギャラリー画像" class="gallery-image">
+              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <div class="gallery-item-info">
-                <img class="user-thumbnail" src="https://1.bp.blogspot.com/-LgVrdZ34XRM/XAnwY68nMrI/AAAAAAABQxA/P71YbDy3z3YCWiX9rLRsPQPw0iUzevxGwCLcBGAs/s800/stand_naname3_man.png">
-                  <span class="user-name">Jane Smith</span>
+                <%= image_tag plant.user.image, class: "user-thumbnail" %>
+                  <span class="user-name"><%= plant.user.name %></span>
               </div>
             </div>
         </div>
