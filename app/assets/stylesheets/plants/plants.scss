@@ -62,6 +62,17 @@ main{
   object-fit: cover;
 }
 
+.user-profile {
+  display: flex;
+  align-items: center; /* 画像を垂直方向に中央寄せ */
+}
+
+.user-thumbnail-nav{
+    width: 40px; /* 画像の幅を調整 */
+    height: 40px; /* 画像の高さを調整 */
+    object-fit: cover; /* 画像を切り抜き */
+  }
+
 .gallery-item-info .user-name {
   display: inline-block;
   vertical-align: middle;
