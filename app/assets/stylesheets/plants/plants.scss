@@ -7,20 +7,26 @@ main{
   background-blend-mode:lighten;
 }
 
+.row-cols-3 .gallery {
+  margin: 0;
+  padding: 0;
+}
+
+.row-cols-3 .gallery .gallery-block {
+  margin: 0;
+  padding: 0;
+}
+
 .gallery{
   display: flex; /* 親要素をフレックスコンテナにする */
   justify-content: center; /* 横方向に中央寄せ */
   align-items: center; /* 縦方向に中央寄せ */
-  padding-bottom: 10px;
 }
 
 .gallery-block {
   width: 100%; /* ブロックの幅を設定 */
   overflow: hidden; /* ブロック外のコンテンツを非表示にする */
   position: relative; /* ブロックの中に画像を配置するために必要 */
-  border: solid;
-  border-color: gray;
-  border-radius: 5px;
 }
 
 .gallery-block::before {
@@ -45,21 +51,24 @@ main{
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  padding: 10px;
+  height: 35px;
+  padding: 5%;
   color: #fff;
-  font-size: 14px;
-}
-.gallery-item-info .user-thumbnail {
-  display: inline-block;
-  vertical-align: middle;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+  align-items: center;
+  font-size: 100%;
+  display: flex;
 }
 
 .user-thumbnail{
-  object-fit: cover;
+  margin: 10px 10px 10px 0px;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.user-name{
+align-items: center;
 }
 
 .user-profile {
@@ -72,11 +81,6 @@ main{
     height: 40px; /* 画像の高さを調整 */
     object-fit: cover; /* 画像を切り抜き */
   }
-
-.gallery-item-info .user-name {
-  display: inline-block;
-  vertical-align: middle;
-}
 
 .load-more {
   text-align: center;

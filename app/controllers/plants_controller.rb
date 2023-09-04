@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @plants = Plant.all
+    @plants = Plant.includes(:user).order('created_at DESC')
   end
 
   def new
