@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <!-- 植物画像 -->
+        <div class="show-plant-image ratio ratio-1x1">
+          <%= image_tag @plant.image, class: "rounded object-fit-cover" %>
+          <!-- いいねボタン（リンクは仮置き） -->
+          <a href="#" class="like-button"><i class="fas fa-heart"></i></a>
+        </div>
+        
+        <!-- 投稿者情報 -->
+        <div class="d-flex align-items-center p-3">
+          <%= image_tag @plant.user.image, class: "rounded-circle user-thumbnail mr-2", alt: "User Image" %>
+          <span class="user-name"><%= @plant.user.nickname %></span>
+        </div>
+
+        <!-- 植物名 -->
+        <h2 class="card-title text-center"><%= @plant.name %></h2>
+
+        <!-- 説明 -->
+        <p class="card-text"><%= @plant.description %></p>
+
+        <!-- コメント一覧 -->
+        <div class="comments">
+          <!-- コメント一覧表示部分（仮置き） -->
+          <div class="comment">
+            <strong>ユーザー1:</strong> これは素晴らしい植物ですね！
+          </div>
+          <div class="comment">
+            <strong>ユーザー2:</strong> 私も同じ植物を育てています。
+          </div>
+
+          <!-- コメントフォーム（仮置き） -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
