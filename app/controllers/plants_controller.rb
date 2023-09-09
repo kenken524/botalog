@@ -19,6 +19,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @plants = Plant.includes(:user).order('created_at DESC')
     @plant = Plant.find_by(id: params[:id])
   end
 

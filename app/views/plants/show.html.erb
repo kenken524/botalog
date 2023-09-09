@@ -1,40 +1,117 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="card">
-        <!-- 植物画像 -->
-        <div class="show-plant-image ratio ratio-1x1">
-          <%= image_tag @plant.image, class: "rounded object-fit-cover" %>
-          <!-- いいねボタン（リンクは仮置き） -->
-          <a href="#" class="like-button"><i class="fas fa-heart"></i></a>
+<main class="p-3">
+
+    <div class="container">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h3><%= link_to user_mypage_path(@plant.user.id) do %>
+        <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle " %>
+        <% end %>
+        <span class="user-name"><%= @plant.user.nickname %></span></h3>
+      </div>
+      <div class="card-body align-items-center">
+        <div class="text-center">
+          <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
         </div>
-        
-        <!-- 投稿者情報 -->
-        <div class="d-flex align-items-center p-3">
-          <%= image_tag @plant.user.image, class: "rounded-circle user-thumbnail mr-2", alt: "User Image" %>
-          <span class="user-name"><%= @plant.user.nickname %></span>
+        <hr>
+        <div>
+          <h5>植物名：<%= @plant.name %></h5>
         </div>
+
+      </div>
+      <hr>
+
+
+    </div>
+
+            <!-- 投稿者サムネイルと名前 -->
+        <div class="row mt-3">
+            <div class="col-md-8 mx-auto my-0 d-flex align-items-center">
+              <div class="rounded-circle overflow-hidden" style="width: 15px; height: 15px;">
+                <%= image_tag @plant.user.image, alt: "投稿者サムネイル", class: "object-fit-cover" %>
+              </div>
+              <h5 class="ml-2"><%= @plant.user.nickname %></h5>
+            </div>
+        </div>
+        <hr class="col-md-8 mx-auto">
+        <!-- 画像表示 -->
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
+            </div>
+        </div>
+        <hr class="col-md-8 mx-auto">
 
         <!-- 植物名 -->
-        <h2 class="card-title text-center"><%= @plant.name %></h2>
-
-        <!-- 説明 -->
-        <p class="card-text"><%= @plant.description %></p>
-
-        <!-- コメント一覧 -->
-        <div class="comments">
-          <!-- コメント一覧表示部分（仮置き） -->
-          <div class="comment">
-            <strong>ユーザー1:</strong> これは素晴らしい植物ですね！
-          </div>
-          <div class="comment">
-            <strong>ユーザー2:</strong> 私も同じ植物を育てています。
-          </div>
-
-          <!-- コメントフォーム（仮置き） -->
-
+        <div class="row mt-3">
+            <div class="col-md-8 mx-auto">
+                <h3><%= @plant.name %></h3>
+            </div>
         </div>
+        <hr class="col-md-8 mx-auto">
+
+        <!-- 説明文 -->
+        <div class="row mt-3">
+            <div class="col-md-8 mx-auto">
+                <p><%= @plant.description %></p>
+            </div>
+        </div>
+        <hr class="col-md-8 mx-auto my-0">
+    </div>
+
+  <!-- タブ部分 -->
+      <ul class="nav nav-tabs nav-fill nav-justified">
+        <li class="nav-item">
+          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
+        </li>
+      </ul>
+      
+  <!-- タブの中身部分全体 -->
+  <div class="tab-content"> 
+        <!-- タブの中身（植物一覧） -->
+    <div id="plants" class="tab-pane active">
+      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+				<% @plants.each do |plant| %>
+          <div class="col gallery">           
+				    <div class="gallery-block">
+              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+                <div class="gallery-item-info">
+                  <%= link_to user_mypage_path(plant.user.id) do %>
+                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
+                  <% end %>
+                  <span class="user-name"><%= plant.user.nickname %></span>
+                </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
+
+        <!-- タブの中身（育成記録一覧） -->
+        <div id="plants" class="tab-pane active">
+        </div>
+
+        <!-- ユーザー一覧（植物一覧） -->
+        <div id="users" class="tab-pane">
+        </div>
+  
+  </div> 
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
   </div>
-</div>
+</footer>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

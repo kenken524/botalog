@@ -4,9 +4,9 @@
       <i class="fa-solid fa-seedling" style="color: #ffffff;"> Botalog</i>
       <% end %>
     <% if user_signed_in? %>
-    <div class="user-profile ms-auto me-2">
+    <div class="user-profile-nav ms-auto me-2">
       <%= link_to user_mypage_path(current_user.id) do %>
-        <%= image_tag current_user.image, class: "rounded-circle border border-2 border-dark user-thumbnail-nav" %>
+        <%= image_tag current_user.image, class: "rounded-circle user-thumbnail-nav" %>
       <% end %>
     </div>
     <% end %>

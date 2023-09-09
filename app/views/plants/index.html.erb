@@ -1,30 +1,30 @@
 <main class="p-3">
 
-  <section class="py-5 text-center container bg01">
-    <div class="row py-lg-5">
+  <div class="py-3 text-center container">
+    <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Botalog</h1>
         <p class="lead">お気に入りの植物を登録して、育成記録をシェアしよう！</p>
         <p>
           <%= link_to new_plant_path, class: "btn btn-success w-100 my-2" do %>
-           <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 植物を登録する
+           <i class="fa-solid fa-seedling"></i> 植物を登録する
           <% end %>
-          <a href="#" class="btn btn-success w-100 my-2"><i class="fa-solid fa-camera-retro" style="color: #ffffff;"> 育成記録をつける</i></a>
+          <a href="#" class="btn btn-success w-100 my-2"><i class="fa-solid fa-camera-retro"> 育成記録をつける</i></a>
         </p>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- タブ部分 -->
-<ul class="nav nav-tabs nav-fill justify-content-center">
+      <ul class="nav nav-tabs nav-fill nav-justified">
         <li class="nav-item">
-          <a href="#plants" class="nav-link active" data-bs-toggle="tab">みんなの植物</a>
+          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
         </li>
         <li class="nav-item">
-          <a href="#care-records" class="nav-link" data-bs-toggle="tab">みんなの育成記録</a>
+          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab">ユーザー</a>
+          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
         </li>
       </ul>
       
@@ -36,10 +36,12 @@
 				<% @plants.each do |plant| %>
           <div class="col gallery">           
 				    <div class="gallery-block">
+              <%= link_to plant_path(plant.id) do %>
               <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
                 <div class="gallery-item-info">
                   <%= link_to user_mypage_path(plant.user.id) do %>
-                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle border border-1 border-dark " %>
+                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
                   <% end %>
                   <span class="user-name"><%= plant.user.nickname %></span>
                 </div>
@@ -50,30 +52,14 @@
     </div>
 
         <!-- タブの中身（育成記録一覧） -->
-    <div id="plants" class="tab-pane">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-3">
-				<% @plants.each do |plant| %>
-          <div class="col gallery">           
-				    <div class="gallery-block">
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
-                <div class="gallery-item-info">
-                  <%= image_tag plant.user.image, class: "user-thumbnail" %>
-                  <span class="user-name"><%= plant.user.nickname %></span>
-                </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+        <div id="plants" class="tab-pane active">
+        </div>
 
         <!-- ユーザー一覧（植物一覧） -->
         <div id="users" class="tab-pane">
-					
         </div>
- </div> 
-
-
-
+  
+  </div> 
 </main>
 
 <footer class="text-muted py-5">

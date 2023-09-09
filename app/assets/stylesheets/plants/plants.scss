@@ -1,3 +1,4 @@
+/* 全ページ共通背景画像設定 */
 main{
   background-image: image-url('botalog-background.jpeg');
   background-position: center center;
@@ -7,6 +8,24 @@ main{
   background-blend-mode:lighten;
 }
 
+/* リンクのテキスト装飾を変更してアンダースコアを非表示にする */
+a {
+  text-decoration: none; /* 下線（アンダースコア）を非表示にする */
+}
+
+
+/* 全タブ共通スタイル */
+.nav-tabs a{
+  color: white;
+  background-color: #198754;
+}
+
+.nav:hover a{
+  color: white;
+  background-color: #198754;
+}
+
+/* 全画像一覧表示共通スタイル */
 .row-cols-3 .gallery {
   margin: 0;
   padding: 0;
@@ -15,12 +34,6 @@ main{
 .row-cols-3 .gallery .gallery-block {
   margin: 0;
   padding: 0;
-}
-
-.gallery{
-  display: flex; /* 親要素をフレックスコンテナにする */
-  justify-content: center; /* 横方向に中央寄せ */
-  align-items: center; /* 縦方向に中央寄せ */
 }
 
 .gallery-block {
@@ -51,11 +64,10 @@ main{
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 35px;
+  height: 25%;
   padding: 5%;
   color: #fff;
   align-items: center;
-  font-size: 100%;
   display: flex;
 }
 
@@ -65,12 +77,24 @@ main{
   width: 30px;
   align-items: center;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .user-name{
 align-items: center;
 }
 
+/* もっと見るボタンを設定 */
+.load-more {
+  text-align: center;
+  padding: 20px 0;
+}
+.load-more button {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* ナビゲーションバースタイル */
 .user-profile {
   display: flex;
   align-items: center; /* 画像を垂直方向に中央寄せ */
@@ -81,25 +105,6 @@ align-items: center;
     height: 40px; /* 画像の高さを調整 */
     object-fit: cover; /* 画像を切り抜き */
   }
-
-.load-more {
-  text-align: center;
-  padding: 20px 0;
-}
-.load-more button {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-
-.nav-tabs a{
-  color: white;
-  background-color: #198754;
-}
-
-.nav:hover a{
-  color: white;
-  background-color: #198754;
-}
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
