@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_plant, only: [:show, :edit, :update]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
   def index
     @plants = Plant.includes(:user).order('created_at DESC')
@@ -35,6 +35,12 @@ class PlantsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @plant.destroy if @plant.user == current_user
+
+    redirect_to root_path
   end
 
   private
