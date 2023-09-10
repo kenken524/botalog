@@ -2,72 +2,55 @@
 
     <div class="container">
     <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h3><%= link_to user_mypage_path(@plant.user.id) do %>
+      <div class="card-header d-flex align-items-center justify-content-between my-0 py-0 ">
+        <div class="d-flex align-items-center">
+        <%= link_to user_mypage_path(@plant.user.id) do %>
         <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle " %>
         <% end %>
-        <span class="user-name"><%= @plant.user.nickname %></span></h3>
-      </div>
-      <div class="card-body align-items-center">
-        <div class="text-center">
-          <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
+        <h3><%= @plant.user.nickname %></h3>
         </div>
-        <hr>
         <div>
-          <h5>植物名：<%= @plant.name %></h5>
+        いいねボタンとブックマークボタンを配置
         </div>
-
       </div>
-      <hr>
-
-
-    </div>
-
-            <!-- 投稿者サムネイルと名前 -->
-        <div class="row mt-3">
-            <div class="col-md-8 mx-auto my-0 d-flex align-items-center">
-              <div class="rounded-circle overflow-hidden" style="width: 15px; height: 15px;">
-                <%= image_tag @plant.user.image, alt: "投稿者サムネイル", class: "object-fit-cover" %>
+      <div class="card-body">
+        <div class="row row-cols-1">
+          <div class="col" style="display: flex; justify-content: center; align-items: center; margin-bottom:15px;">
+            <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
+          </div>
+          <hr>
+          <div class="col">
+            <div class="plant-info-box" style="font-size: 12px;">
+              <div>
+                植物名：<%= @plant.name %>
               </div>
-              <h5 class="ml-2"><%= @plant.user.nickname %></h5>
+              <div>
+                管理開始日：<%= @plant.start_date %>
+              </div>
             </div>
-        </div>
-        <hr class="col-md-8 mx-auto">
-        <!-- 画像表示 -->
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
+          </div>
+          <hr>
+          <div class="col">
+            <div class="plant-info-box" style="font-size: 12px;">
+            <%= @plant.description %>
             </div>
+          </div>
         </div>
-        <hr class="col-md-8 mx-auto">
+      </div>
 
-        <!-- 植物名 -->
-        <div class="row mt-3">
-            <div class="col-md-8 mx-auto">
-                <h3><%= @plant.name %></h3>
-            </div>
-        </div>
-        <hr class="col-md-8 mx-auto">
 
-        <!-- 説明文 -->
-        <div class="row mt-3">
-            <div class="col-md-8 mx-auto">
-                <p><%= @plant.description %></p>
-            </div>
-        </div>
-        <hr class="col-md-8 mx-auto my-0">
     </div>
 
   <!-- タブ部分 -->
       <ul class="nav nav-tabs nav-fill nav-justified">
         <li class="nav-item">
-          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
+          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i>育成記録</a>
         </li>
         <li class="nav-item">
-          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
+          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
+          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
         </li>
       </ul>
       
@@ -84,7 +67,7 @@
                   <%= link_to user_mypage_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
                   <% end %>
-                  <span class="user-name"><%= plant.user.nickname %></span>
+                  <%= plant.user.nickname %>
                 </div>
             </div>
           </div>

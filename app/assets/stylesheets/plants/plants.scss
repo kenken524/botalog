@@ -8,12 +8,6 @@ main{
   background-blend-mode:lighten;
 }
 
-/* リンクのテキスト装飾を変更してアンダースコアを非表示にする */
-a {
-  text-decoration: none; /* 下線（アンダースコア）を非表示にする */
-}
-
-
 /* 全タブ共通スタイル */
 .nav-tabs a{
   color: white;
@@ -58,7 +52,7 @@ a {
   object-position: center center; /* 画像を中央に配置 */
 }
 
-.gallery-item-info {
+.gallery-item-info{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -80,9 +74,7 @@ a {
   object-fit: cover;
 }
 
-.user-name{
-align-items: center;
-}
+
 
 /* もっと見るボタンを設定 */
 .load-more {
