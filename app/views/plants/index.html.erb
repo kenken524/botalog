@@ -43,7 +43,7 @@
                   <%= link_to user_mypage_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
                   <% end %>
-                  <span class="user-name"><%= plant.user.nickname %></span>
+                  <%= plant.user.nickname %>
                 </div>
             </div>
           </div>
