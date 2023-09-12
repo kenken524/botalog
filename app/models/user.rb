@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :password, presence: true, on: :create
+  validates :image, :nickname, :profile, presence: true
 
   has_one_attached :image
   has_many :plants

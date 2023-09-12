@@ -67,7 +67,9 @@
 				<% @plants.each do |plant| %>
           <div class="col gallery">           
 				    <div class="gallery-block">
+              <%= link_to plant_path(plant.id) do %>
               <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
                 <div class="gallery-item-info">
                   <%= link_to user_mypage_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>

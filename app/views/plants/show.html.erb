@@ -8,7 +8,7 @@
             <%= link_to user_mypage_path(@plant.user.id) do %>
               <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle" %>
             <% end %>
-            <h3><%= @plant.user.nickname %></h3>
+            <div class="pt-2"><h3><%= @plant.user.nickname %></h3></div>
           </div>
           <div>
             いいねボタンとブックマークボタンを配置

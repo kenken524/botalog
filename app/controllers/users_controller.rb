@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     @plants = Plant.where(user_id: @user.id).order('created_at DESC')
   end
 
+  def new
+  end
+
   def edit
   end
 
