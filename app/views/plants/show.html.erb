@@ -1,54 +1,52 @@
 <main class="p-3">
         <!-- 植物詳細カード -->
-    <div class="card mb-2 shadow-sm">
-      <div class="card-header d-flex align-items-center justify-content-between my-0 py-0 ">
-        <div class="d-flex align-items-center">
-        <%= link_to user_mypage_path(@plant.user.id) do %>
-        <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle " %>
-        <% end %>
-        <h3><%= @plant.user.nickname %></h3>
+  <div class="container">
+    <div class="row row-cols-1 justify-content-center">
+      <div class="card mb-2 shadow-sm" style="width: auto;">
+        <div class="card-header d-flex align-items-center justify-content-between my-0 py-0 ">
+          <div class="d-flex align-items-center">
+            <%= link_to user_mypage_path(@plant.user.id) do %>
+              <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle" %>
+            <% end %>
+            <h3><%= @plant.user.nickname %></h3>
+          </div>
+          <div>
+            いいねボタンとブックマークボタンを配置
+          </div>
         </div>
-        <div>
-        いいねボタンとブックマークボタンを配置
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+          <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="plant-info-box d-flex justify-content-between" style="font-size: 12px;">
+                <div>植物名<br><%= @plant.name %></div>
+                <div>管理開始日<br><%= @plant.start_date %></div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="plant-info-box" style="font-size: 12px;">
+                <%= @plant.description %>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="card-body">
-        <div class="row row-cols-1">
-          <div class="col" style="display: flex; justify-content: center; align-items: center; margin-bottom:15px;">
-            <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
-          </div>
-          <hr>
-          <div class="col">
-            <div class="plant-info-box d-flex justify-content-between" style="margin-bottom:15px; font-size: 12px;">
-                <div>植物名：<%= @plant.name %></div>
-                <div>管理開始日：<%= @plant.start_date %></div>
-            </div>
-          </div>
-          <hr>
-          <div class="col">
-            <div class="plant-info-box" style="font-size: 12px;">
-            <%= @plant.description %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
         <!-- 編集削除ボタン -->
-    <% if user_signed_in? && current_user.id == @plant.user.id %>
-    <div class="row row-cols-2">
-      <div class="col">
+      <% if user_signed_in? && current_user.id == @plant.user.id %>
+      <div class="d-flex justify-content-center">
           <%= link_to edit_plant_path(@plant), method: :get, class: "btn btn-success w-100 mb-4" do %>
-           <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 編集する
+          <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 編集する
           <% end %>
-      </div>
-      <div class="col">
           <%= link_to plant_path(@plant), method: :delete, class: "btn btn-danger w-100 mb-4" do %>
-           <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 削除する
+          <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 削除する
           <% end %>
       </div>
+      <% end %>
     </div>
-    <% end %>
+  </div>
 
 
   <!-- タブ部分 -->
@@ -72,7 +70,9 @@
 				<% @plants.each do |plant| %>
           <div class="col gallery">           
 				    <div class="gallery-block">
+              <%= link_to plant_path(plant.id) do %>
               <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
                 <div class="gallery-item-info">
                   <%= link_to user_mypage_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
