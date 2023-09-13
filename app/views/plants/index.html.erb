@@ -6,10 +6,14 @@
         <h1 class="fw-light">Botalog</h1>
         <p class="lead">お気に入りの植物を登録して、育成記録をシェアしよう！</p>
         <p>
-          <%= link_to new_plant_path, class: "btn btn-success w-100 my-2" do %>
+          <%= link_to new_plant_path, class: "btn btn-success" do %>
            <i class="fa-solid fa-seedling"></i> 植物を登録する
           <% end %>
-          <a href="#" class="btn btn-success w-100 my-2"><i class="fa-solid fa-camera-retro"> 育成記録をつける</i></a>
+        </p>
+        <p>
+          <%= link_to new_care_record_path, class: "btn btn-success my-2" do %>
+           <i class="fa-solid fa-camera-retro"></i> 育成記録をつける
+          <% end %>
         </p>
       </div>
     </div>
@@ -52,8 +56,25 @@
     </div>
 
         <!-- タブの中身（育成記録一覧） -->
-        <div id="plants" class="tab-pane active">
-        </div>
+    <div id="care-records" class="tab-pane">
+      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+				<% @carerecords.each do |carerecord| %>
+          <div class="col gallery">           
+				    <div class="gallery-block">
+              <%= link_to care_record_path(carerecord.id) do %>
+              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
+                <div class="gallery-item-info">
+                  <%= link_to user_mypage_path(carerecord.user.id) do %>
+                  <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
+                  <% end %>
+                  <%= carerecord.plant.user.nickname %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
         <!-- ユーザー一覧（植物一覧） -->
         <div id="users" class="tab-pane">
@@ -71,6 +92,3 @@
     <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
-
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

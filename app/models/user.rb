@@ -9,5 +9,6 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :plants
+  has_many :care_records, through: :plants
 
 end
