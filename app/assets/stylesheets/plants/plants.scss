@@ -63,12 +63,22 @@ main{
   color: #fff;
   align-items: center;
   display: flex;
+  font-size: small;
 }
 
 .user-thumbnail{
   margin: 10px 10px 10px 0px;
   height: 30px;
   width: 30px;
+  align-items: center;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-mypage-thumbnail{
+  margin: 10px 10px 10px 0px;
+  height: 100px;
+  width: 100px;
   align-items: center;
   border-radius: 50%;
   object-fit: cover;
