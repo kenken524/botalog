@@ -1,11 +1,11 @@
 <main class="p-3">
-<%= form_with model: @carerecord, url: care_records_path, local: true do |form| %>
+<%= form_with model: @carerecord, url: care_record_path(@carerecord), local: true do |form| %>
 
   <div class="container">
     <div class="row row-cols-1 justify-content-center">
       <div class="card mb-2 shadow-sm" style="width: auto;">
         <div class="card-header d-flex align-items-center">
-          <h3>育成記録をつける</h3>
+          <h3>育成記録を編集する</h3>
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">

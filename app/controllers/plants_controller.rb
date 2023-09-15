@@ -22,6 +22,7 @@ class PlantsController < ApplicationController
 
   def show
     @plants = Plant.includes(:user).order('created_at DESC')
+    @carerecords = @plant.care_records.includes(:user).order('created_at DESC')
   end
 
   def edit

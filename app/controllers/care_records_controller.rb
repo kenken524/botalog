@@ -1,6 +1,6 @@
 class CareRecordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_plant, only: [:show, :edit, :update, :destroy]
+  before_action :set_carerecord, only: [:show, :edit, :update, :destroy]
 
   def index
     @carerecords = CareRecord.includes(:user).order('created_at DESC')
@@ -24,14 +24,14 @@ class CareRecordsController < ApplicationController
   end
 
   def edit
-    return if @carerecord.user == current_user
-
-    redirect_to root_path
+    if @carerecord.user != current_user
+      redirect_to care_record_path(@carerecord)
+    end
   end
 
   def update
     if @carerecord.update(carerecord_params)
-      redirect_to plant_path
+      redirect_to care_record_path(@carerecord)
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class CareRecordsController < ApplicationController
     params.require(:care_record).permit(:description, :care_date, :image, :plant_id).merge(user_id: current_user.id)
   end
 
-  def set_plant
+  def set_carerecord
     @carerecord = CareRecord.find(params[:id])
   end
 end

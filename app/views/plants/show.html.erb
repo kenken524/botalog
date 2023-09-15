@@ -50,32 +50,32 @@
   <!-- タブ部分 -->
       <ul class="nav nav-tabs nav-fill nav-justified">
         <li class="nav-item">
-          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i>育成記録</a>
+          <a href="#care-records" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i>育成記録</a>
         </li>
         <li class="nav-item">
-          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
+          <a href="#comments" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
+          <a href="#likes" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
         </li>
       </ul>
       
   <!-- タブの中身部分全体 -->
   <div class="tab-content"> 
         <!-- タブの中身（植物一覧） -->
-    <div id="plants" class="tab-pane active">
+    <div id="care-records" class="tab-pane active">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-				<% @plants.each do |plant| %>
+				<% @carerecords.each do |carerecord| %>
           <div class="col gallery">           
 				    <div class="gallery-block">
-              <%= link_to plant_path(plant.id) do %>
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <%= link_to care_record_path(carerecord.id) do %>
+              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
                 <div class="gallery-item-info">
-                  <%= link_to user_mypage_path(plant.user.id) do %>
-                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
+                  <%= link_to user_mypage_path(carerecord.user.id) do %>
+                  <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
                   <% end %>
-                  <%= plant.user.nickname %>
+                  <%= carerecord.plant.user.nickname %>
                 </div>
             </div>
           </div>
@@ -84,25 +84,12 @@
     </div>
 
         <!-- タブの中身（育成記録一覧） -->
-        <div id="plants" class="tab-pane active">
+        <div id="comments" class="tab-pane active">
         </div>
 
         <!-- ユーザー一覧（植物一覧） -->
-        <div id="users" class="tab-pane">
+        <div id="likes" class="tab-pane">
         </div>
   
   </div> 
 </main>
-
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
-
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
