@@ -38,7 +38,7 @@
           <%= link_to edit_care_record_path(@carerecord), method: :get, class: "btn btn-success w-100 mb-4" do %>
           <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 編集する
           <% end %>
-          <%= link_to care_record_path(@carerecord), method: :delete, class: "btn btn-danger w-100 mb-4" do %>
+          <%= link_to care_record_path(@carerecord), method: :delete, class: "btn btn-danger w-100 mb-4", data: { confirm: '本当に削除しますか？' } do %>
           <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 削除する
           <% end %>
       </div>

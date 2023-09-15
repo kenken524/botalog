@@ -8,8 +8,8 @@
       <%= link_to user_mypage_path(current_user.id) do %>
         <%= image_tag current_user.image, class: "rounded-circle user-thumbnail-nav" %>
       <% end %>
-      <% end %>
     </div>
+      <% end %>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,9 +32,6 @@
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
           </li>
-        <% end %>
+        <% end %>      
     </div>
   </nav>
-
-
-  
