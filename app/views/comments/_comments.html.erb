@@ -2,7 +2,7 @@
   <div class="mx-3"><h4>コメント一覧</h4></div>
   <ul class="list-group">
     <% comments.each do |comment| %>
-      <li class="list-group-item">
+      <li class="list-group-item align-items-center">
           <div class="d-flex align-items-center">
             <%= link_to user_mypage_path(comment.user.id) do %>
               <%= image_tag comment.user.image, class: "user-thumbnail rounded-circle" %>
@@ -10,6 +10,7 @@
             <div class="pt-2"><h5><%= comment.user.nickname %></h5></div>
             <div>:<%= comment.content %></div>
           </div>
+          <div style="font-size: 60%;"><%= comment.created_at.to_s(:datetime_jp) %></div>
       </li>
     <% end %>
   </ul>
