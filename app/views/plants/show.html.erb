@@ -83,13 +83,19 @@
       </div>
     </div>
 
-        <!-- タブの中身（育成記録一覧） -->
-        <div id="comments" class="tab-pane active">
+        <!-- タブの中身（コメント一覧） -->
+        <div id="comments" class="tab-pane bg-light">
+        <% if user_signed_in? %>
+        <%= render 'comments/form', commentable: @plant %>
+        <% else %>
+        <%= link_to 'ログインしてコメントする', new_user_session_path %>
+        <% end %>
+        <%= render 'comments/comments', comments: @plant.comments %>
         </div>
 
         <!-- ユーザー一覧（植物一覧） -->
         <div id="likes" class="tab-pane">
         </div>
-  
+
   </div> 
 </main>

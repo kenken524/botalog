@@ -1,0 +1,12 @@
+<%= form_with(model: [commentable, Comment.new], url: polymorphic_path([commentable, :comments]), local: true) do |form| %>
+  <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
+  <%= form.hidden_field :commentable_id, value: commentable.id %>
+
+  <div class="p-3">
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3 mx-3">
+    <%= form.submit 'コメントする', class: 'btn btn-success' %>
+  </div>
+<% end %>

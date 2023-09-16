@@ -50,7 +50,7 @@
   <!-- タブ部分 -->
       <ul class="nav nav-tabs nav-fill nav-justified">
         <li class="nav-item">
-          <a href="#comments" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
+          <a href="#comments" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
         </li>
         <li class="nav-item">
           <a href="#likes" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
@@ -60,8 +60,14 @@
   <!-- タブの中身部分全体 -->
   <div class="tab-content"> 
         <!-- タブの中身（コメント一覧） -->
-        <div id="comments" class="tab-pane active">
-        </div>
+    <div id="comments" class="tab-pane active bg-light">
+    <% if user_signed_in? %>
+    <%= render 'comments/form', commentable: @carerecord %>
+    <% else %>
+    <%= link_to 'ログインしてコメントする', new_user_session_path %>
+    <% end %>
+    <%= render 'comments/comments', comments: @carerecord.comments %>
+    </div>
 
         <!-- いいね一覧（いいね一覧） -->
         <div id="likes" class="tab-pane">

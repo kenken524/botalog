@@ -16,7 +16,7 @@
             </li>
             <li class="list-group-item">
                 <div class="field">
-                  <%= form.label :plant_id, "植物を選択", class: "form-label" %><br />
+                  <%= form.label :plant_id, "植物を選択(※はじめに植物を登録してください)", class: "form-label" %><br />
                   <%= form.collection_select :plant_id, current_user.plants, :id, :name, {}, class: "form-control" %>
                 </div>
             </li>
