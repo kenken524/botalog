@@ -86,17 +86,19 @@
     </div>
 
         <!-- タブの中身（育成記録一覧） -->
-    <div id="plants" class="tab-pane">
+    <div id="care-records" class="tab-pane">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-				<% @plants.each do |plant| %>
+				<% @carerecords.each do |carerecord| %>
           <div class="col gallery">           
 				    <div class="gallery-block">
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <%= link_to care_record_path(carerecord.id) do %>
+              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
                 <div class="gallery-item-info">
-                  <%= link_to user_mypage_path(plant.user.id) do %>
-                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle border border-1 border-dark " %>
+                  <%= link_to user_mypage_path(carerecord.user.id) do %>
+                  <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
                   <% end %>
-                  <span class="user-name"><%= plant.user.nickname %></span>
+                  <%= carerecord.plant.user.nickname %>
                 </div>
             </div>
           </div>
