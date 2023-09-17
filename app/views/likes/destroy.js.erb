@@ -1,0 +1,11 @@
+// plant-likes-btnの存在を確認し、存在する場合のみコードを実行
+var plantLikesButton = document.getElementById('plant-likes-btn');
+if (plantLikesButton) {
+  plantLikesButton.innerHTML = '<%= j(render partial: 'likes/plant_likes', locals: {plant: @plant}) %>';
+}
+
+// carerecord-likes-btnの存在を確認し、存在する場合のみコードを実行
+var carerecordLikesButton = document.getElementById('carerecord-likes-btn');
+if (carerecordLikesButton) {
+  carerecordLikesButton.innerHTML = '<%= j(render partial: 'likes/carerecord_likes', locals: {care_record: @carerecord}) %>';
+}

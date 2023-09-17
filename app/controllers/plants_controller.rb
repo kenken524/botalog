@@ -25,6 +25,7 @@ class PlantsController < ApplicationController
     @carerecords = @plant.care_records.includes(:user).order('created_at DESC')
     @comments = @plant.comments.includes(:user)
     @comment = Comment.new(commentable: @plant)
+    @likes = @plant.likes.includes(:user)
   end
 
   def edit

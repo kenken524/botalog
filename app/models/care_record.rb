@@ -5,4 +5,5 @@ class CareRecord < ApplicationRecord
   belongs_to :user
   belongs_to :plant
   has_many :comments, as: :commentable
+  has_many :likes, as: :likable, dependent: :destroy
 end

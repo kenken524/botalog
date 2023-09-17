@@ -11,7 +11,9 @@
             <div class="pt-2"><h5><%= @plant.user.nickname %></h5></div>
           </div>
           <div>
-            いいね、☆ボタン
+            <div id="plant-likes-btn">
+              <%= render 'likes/plant_likes' %>
+            </div>
           </div>
         </div>
         <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>

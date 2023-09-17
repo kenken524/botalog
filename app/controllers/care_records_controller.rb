@@ -23,6 +23,7 @@ class CareRecordsController < ApplicationController
     @carerecords = CareRecord.includes(:user).order('created_at DESC')
     @comments = @carerecord.comments.includes(:user)
     @comment = Comment.new(commentable: @carerecord)
+    @likes = @carerecord.likes.includes(:user)
   end
 
   def edit

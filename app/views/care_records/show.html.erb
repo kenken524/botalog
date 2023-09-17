@@ -11,7 +11,9 @@
             <div class="pt-2"><h5><%= @carerecord.user.nickname %></h5></div>
           </div>
           <div>
-            いいね、☆ボタン
+            <div id="carerecord-likes-btn">
+              <%= render 'likes/carerecord_likes' %>
+            </div>
           </div>
         </div>
         <%= image_tag @carerecord.image, alt: "植物画像", class: "img-fluid" %>
