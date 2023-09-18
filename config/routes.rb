@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :plants do
     resources :comments, module: :plants
     resources :likes, only: [:create, :destroy]
+    resources :bookmarks, only: [:create, :destroy]
   end
   
   resources :care_records do

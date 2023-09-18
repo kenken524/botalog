@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @plants = Plant.where(user_id: @user.id).order('created_at DESC')
     @carerecords = CareRecord.where(user_id: @user.id).order('created_at DESC')
     @likes = @user.likes.includes(:likeable)
+    @bookmarks = @user.bookmarks.includes(:plant)
   end
 
   def new

@@ -52,20 +52,20 @@
           <a href="#care-records" class="nav-link" data-bs-toggle="tab">MY育成記録</a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab">フォロー</a>
+          <a href="#follow-users" class="nav-link" data-bs-toggle="tab">フォロー</a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab">フォロワー</a>
+          <a href="#followed-users" class="nav-link" data-bs-toggle="tab">フォロワー</a>
         </li>
         <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab">ブックマーク</a>
+          <a href="#bookmarks" class="nav-link" data-bs-toggle="tab">ブックマーク</a>
         </li>
       </ul>
       
   <!-- タブの中身部分全体 -->
   <div class="tab-content"> 
         <!-- タブの中身（植物一覧） -->
-    <div id="plants" class="tab-pane active">
+    <div id="plants" class="tab-pane active bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
 				<% @plants.each do |plant| %>
           <div class="col gallery">           
@@ -86,7 +86,7 @@
     </div>
 
         <!-- タブの中身（育成記録一覧） -->
-    <div id="care-records" class="tab-pane">
+    <div id="care-records" class="tab-pane bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
 				<% @carerecords.each do |carerecord| %>
           <div class="col gallery">           
@@ -106,9 +106,34 @@
       </div>
     </div>
 
-        <!-- ユーザー一覧（植物一覧） -->
-        <div id="users" class="tab-pane">
+        <!-- フォローユーザー一覧 -->
+        <div id="follow-users" class="tab-pane bg-light">
         </div>
+
+        <!-- フォロワーユーザー一覧 -->
+        <div id="follower-users" class="tab-pane bg-light">
+        </div>
+
+        <!-- ブックマーク一覧 -->
+        <div id="bookmarks" class="tab-pane bg-light">
+      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+				<% @bookmarks.each do |bookmark| %>
+          <div class="col gallery">           
+				    <div class="gallery-block">
+              <%= link_to plant_path(bookmark.plant) do %>
+              <%= image_tag bookmark.plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+              <% end %>
+                <div class="gallery-item-info">
+                  <%= link_to user_mypage_path(bookmark.plant.user.id) do %>
+                  <%= image_tag bookmark.plant.user.image, class: "user-thumbnail rounded-circle" %>
+                  <% end %>
+                  <%= bookmark.plant.user.nickname %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
  </div> 
 
 

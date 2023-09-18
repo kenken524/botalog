@@ -10,9 +10,12 @@
             <% end %>
             <div class="pt-2"><h5><%= @plant.user.nickname %></h5></div>
           </div>
-          <div>
+          <div class="d-flex align-items-center">
             <div id="plant-likes-btn">
               <%= render 'likes/plant_likes' %>
+            </div>
+            <div id="bookmarks-btn">
+              <%= render 'bookmarks/bookmarks' %>
             </div>
           </div>
         </div>

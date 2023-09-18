@@ -6,4 +6,5 @@ class Plant < ApplicationRecord
   has_many :care_records
   has_many :comments, as: :commentable
   has_many :likes, as: :likable, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 end

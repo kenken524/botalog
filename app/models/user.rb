@@ -14,4 +14,5 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_plants, through: :likes, source: :likable, source_type: 'Plant'
   has_many :liked_care_records, through: :likes, source: :likable, source_type: 'CareRecord'
+  has_many :bookmarks, dependent: :destroy
 end

@@ -1,0 +1,4 @@
+  var bookmarksButton = document.getElementById('bookmarks-btn');
+if (bookmarksButton) {
+  bookmarksButton.innerHTML = '<%= j(render partial: 'bookmarks/bookmarks', locals: {plant: @plant}) %>';
+}
