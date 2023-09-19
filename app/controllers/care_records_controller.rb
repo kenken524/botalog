@@ -27,9 +27,9 @@ class CareRecordsController < ApplicationController
   end
 
   def edit
-    if @carerecord.user != current_user
+    return unless @carerecord.user != current_user
       redirect_to care_record_path(@carerecord)
-    end
+    
   end
 
   def update

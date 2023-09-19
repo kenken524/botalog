@@ -57,6 +57,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development do
+  gem 'prettier_print'
   gem 'rubocop', require: false
 end
 

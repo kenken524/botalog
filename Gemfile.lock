@@ -126,7 +126,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
-    minitest (5.19.0)
+    minitest (5.20.0)
     msgpack (1.7.2)
     mysql2 (0.5.5)
     net-imap (0.3.7)
@@ -150,6 +150,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    prettier_print (1.2.1)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -262,7 +263,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.2)
     thread_safe (0.3.6)
-    tilt (2.2.0)
+    tilt (2.3.0)
     timeout (0.4.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -272,7 +273,7 @@ GEM
     unicode-display_width (2.4.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.2.0)
+    web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -310,6 +311,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.5.3)
   pg
+  prettier_print
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)

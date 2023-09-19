@@ -1,0 +1,4 @@
+inherit_from: .rubocop_todo.yml
+
+inherit_from:
+  - node_modules/@prettier/plugin-ruby/rubocop.yml

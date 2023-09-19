@@ -1,9 +1,9 @@
 <main class="p-3">
-        <!-- 育成記録詳細カード -->
+  <!-- 育成記録詳細カード -->
   <div class="container">
     <div class="row row-cols-1 justify-content-center">
       <div class="card mb-2 shadow-sm" style="width: auto;">
-        <div class="card-header d-flex align-items-center justify-content-between my-0 py-0 ">
+        <div class="card-header d-flex align-items-center justify-content-between my-0 py-0">
           <div class="d-flex align-items-center">
             <%= link_to user_mypage_path(@carerecord.user.id) do %>
               <%= image_tag @carerecord.user.image, class: "user-thumbnail rounded-circle" %>
@@ -34,61 +34,59 @@
         </div>
       </div>
 
-        <!-- 編集削除ボタン -->
+      <!-- 編集削除ボタン -->
       <% if user_signed_in? && current_user.id == @carerecord.user.id %>
-      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
           <%= link_to edit_care_record_path(@carerecord), method: :get, class: "btn btn-success w-100 mb-4" do %>
-          <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 編集する
+            編集する
           <% end %>
           <%= link_to care_record_path(@carerecord), method: :delete, class: "btn btn-danger w-100 mb-4", data: { confirm: '本当に削除しますか？' } do %>
-          <i class="fa-solid fa-seedling" style="color: #ffffff;"></i> 削除する
+            削除する
           <% end %>
-      </div>
+        </div>
       <% end %>
     </div>
   </div>
 
-
   <!-- タブ部分 -->
-      <ul class="nav nav-tabs nav-fill nav-justified">
-        <li class="nav-item">
-          <a href="#comments" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
-        </li>
-        <li class="nav-item">
-          <a href="#likes" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
-        </li>
-      </ul>
-      
+  <ul class="nav nav-tabs nav-fill nav-justified">
+    <li class="nav-item">
+      <a href="#comments" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i>コメント</a>
+    </li>
+    <li class="nav-item">
+      <a href="#likes" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i>いいね</a>
+    </li>
+  </ul>
+
   <!-- タブの中身部分全体 -->
-  <div class="tab-content"> 
-        <!-- タブの中身（コメント一覧） -->
+  <div class="tab-content">
+    <!-- タブの中身（コメント一覧） -->
     <div id="comments" class="tab-pane active bg-light">
-    <% if user_signed_in? %>
-    <%= render 'comments/form', commentable: @carerecord %>
-    <% else %>
-    <%= link_to 'ログインしてコメントする', new_user_session_path %>
-    <% end %>
-    <%= render 'comments/comments', comments: @carerecord.comments %>
+      <% if user_signed_in? %>
+        <%= render 'comments/form', commentable: @carerecord %>
+      <% else %>
+        <%= link_to 'ログインしてコメントする', new_user_session_path %>
+      <% end %>
+      <%= render 'comments/comments', comments: @carerecord.comments %>
     </div>
 
-        <!-- いいね一覧（いいね一覧） -->
-        <div id="likes" class="tab-pane bg-light">
-          <div class="mx-3"><h4>いいねしたユーザー</h4></div>
-<ul class="list-group">
-  <% @likes.each do |like| %>
-    <li class="list-group-item align-items-center">
-      <div class="d-flex align-items-center">
-        <%= link_to user_mypage_path(like.user) do %>
-          <%= image_tag like.user.image, class: "user-thumbnail rounded-circle" %>
+    <!-- いいね一覧（いいね一覧） -->
+    <div id="likes" class="tab-pane bg-light">
+      <div class="mx-3"><h4>いいねしたユーザー</h4></div>
+      <ul class="list-group">
+        <% @likes.each do |like| %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= link_to user_mypage_path(like.user) do %>
+                <%= image_tag like.user.image, class: "user-thumbnail rounded-circle" %>
+              <% end %>
+              <div class="pt-2">
+                <h5><%= like.user.nickname %></h5>
+              </div>
+            </div>
+          </li>
         <% end %>
-        <div class="pt-2">
-          <h5><%= like.user.nickname %></h5>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
-        </div>
-  
-  </div> 
+      </ul>
+    </div>
+  </div>
 </main>

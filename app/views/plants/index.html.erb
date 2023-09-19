@@ -1,18 +1,17 @@
 <main class="p-3">
-
   <div class="py-3 text-center container">
     <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Botalog</h1>
-        <p class="lead">お気に入りの植物を登録して、育成記録をシェアしよう！</p>
+        <h1 class="fw-light"><i class="fa-solid fa-seedling"> Botalog</i></h1>
+        <p class="lead">育てている植物を登録して、育成記録をシェアしよう！</p>
         <p>
           <%= link_to new_plant_path, class: "btn btn-success" do %>
-           <i class="fa-solid fa-seedling"></i> 植物を登録する
+            <i class="fa-solid fa-seedling"></i> 植物を登録する
           <% end %>
         </p>
         <p>
           <%= link_to new_care_record_path, class: "btn btn-success my-2" do %>
-           <i class="fa-solid fa-camera-retro"></i> 育成記録をつける
+            <i class="fa-solid fa-camera-retro"></i> 育成記録をつける
           <% end %>
         </p>
       </div>
@@ -20,79 +19,79 @@
   </div>
 
   <!-- タブ部分 -->
-      <ul class="nav nav-tabs nav-fill nav-justified">
-        <li class="nav-item">
-          <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
-        </li>
-      </ul>
-      
+  <ul class="nav nav-tabs nav-fill nav-justified">
+    <li class="nav-item">
+      <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
+    </li>
+    <li class="nav-item">
+      <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
+    </li>
+    <li class="nav-item">
+      <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
+    </li>
+  </ul>
+
   <!-- タブの中身部分全体 -->
   <div class="tab-content"> 
-        <!-- タブの中身（植物一覧） -->
+    <!-- タブの中身（植物一覧） -->
     <div id="plants" class="tab-pane active bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-				<% @plants.each do |plant| %>
+        <% @plants.each do |plant| %>
           <div class="col gallery">           
-				    <div class="gallery-block">
+            <div class="gallery-block">
               <%= link_to plant_path(plant.id) do %>
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+                <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
-                <div class="gallery-item-info">
-                  <%= link_to user_mypage_path(plant.user.id) do %>
+              <div class="gallery-item-info">
+                <%= link_to user_mypage_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
-                  <% end %>
-                  <%= plant.user.nickname %>
-                </div>
+                <% end %>
+                <%= plant.user.nickname %>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
 
-        <!-- タブの中身（育成記録一覧） -->
+    <!-- タブの中身（育成記録一覧） -->
     <div id="care-records" class="tab-pane bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-				<% @carerecords.each do |carerecord| %>
+        <% @carerecords.each do |carerecord| %>
           <div class="col gallery">           
-				    <div class="gallery-block">
+            <div class="gallery-block">
               <%= link_to care_record_path(carerecord.id) do %>
-              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
+                <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
-                <div class="gallery-item-info">
-                  <%= link_to user_mypage_path(carerecord.user.id) do %>
+              <div class="gallery-item-info">
+                <%= link_to user_mypage_path(carerecord.user.id) do %>
                   <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
-                  <% end %>
-                  <%= carerecord.plant.user.nickname %>
-                </div>
+                <% end %>
+                <%= carerecord.plant.user.nickname %>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
 
-        <!-- ユーザー一覧（植物一覧） -->
-        <div id="users" class="tab-pane bg-light">
-          <div class="mx-3"><h4>ユーザー</h4></div>
-<ul class="list-group">
-  <% @users.each do |user| %>
-    <li class="list-group-item align-items-center">
-      <div class="d-flex align-items-center">
-        <%= link_to user_mypage_path(user) do %>
-          <%= image_tag user.image, class: "user-thumbnail rounded-circle" %>
+    <!-- タブの中身（ユーザー一覧） -->
+    <div id="users" class="tab-pane bg-light">
+      <div class="mx-3"><h4>ユーザー</h4></div>
+      <ul class="list-group">
+        <% @users.each do |user| %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= link_to user_mypage_path(user) do %>
+                <%= image_tag user.image, class: "user-thumbnail rounded-circle" %>
+              <% end %>
+              <div class="pt-2">
+                <h5><%= user.nickname %></h5>
+              </div>
+            </div>
+          </li>
         <% end %>
-        <div class="pt-2">
-          <h5><%= user.nickname %></h5>
-        </div>
-      </div>
-    </li>
-  <% end %>
-        </div>
-  
+      </ul>
+    </div>
   </div> 
 </main>

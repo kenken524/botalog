@@ -1,46 +1,46 @@
 <main class="p-3">
-<%= form_with model: @carerecord, url: care_record_path(@carerecord), local: true do |form| %>
+  <%= form_with model: @carerecord, url: care_record_path(@carerecord), local: true do |form| %>
 
-  <div class="container">
-    <div class="row row-cols-1 justify-content-center">
-      <div class="card mb-2 shadow-sm" style="width: auto;">
-        <div class="card-header d-flex align-items-center">
-          <h3>育成記録を編集する</h3>
-        </div>
+    <div class="container">
+      <div class="row row-cols-1 justify-content-center">
+        <div class="card mb-2 shadow-sm" style="width: auto;">
+          <div class="card-header d-flex align-items-center">
+            <h3>育成記録を編集する</h3>
+          </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <div class="field">
-                  <%= form.label :image, "画像", class: "form-label" %><br />
-                  <%= form.file_field :image, id:"item-image", class: "form-control" %>
-                </div>
+              <div class="field">
+                <%= form.label :image, "画像", class: "form-label" %><br />
+                <%= form.file_field :image, id: "item-image", class: "form-control" %>
+              </div>
             </li>
             <li class="list-group-item">
-                <div class="field">
-                  <%= form.label :plant_id, "植物を選択", class: "form-label" %><br />
-                  <%= form.collection_select :plant_id, current_user.plants, :id, :name, {}, class: "form-control" %>
-                </div>
+              <div class="field">
+                <%= form.label :plant_id, "植物を選択", class: "form-label" %><br />
+                <%= form.collection_select :plant_id, current_user.plants, :id, :name, {}, class: "form-control" %>
+              </div>
             </li>
             <li class="list-group-item">
-                <div class="field">
-                  <%= form.label :description, "説明", class: "form-label" %><br />
-                  <%= form.text_area :description, class: "form-control" %>
-                </div>
+              <div class="field">
+                <%= form.label :description, "説明", class: "form-label" %><br />
+                <%= form.text_area :description, class: "form-control" %>
+              </div>
             </li>
             <li class="list-group-item">
-                <div class="field">
-                  <%= form.label :care_date, "記録日", class: "form-label" %><br />
-                  <%= form.date_field :care_date, class: "form-control" %>
-                </div>
+              <div class="field">
+                <%= form.label :care_date, "記録日", class: "form-label" %><br />
+                <%= form.date_field :care_date, class: "form-control" %>
+              </div>
             </li>
             <li class="list-group-item">
               <div class="actions d-flex justify-content-center">
-              <%= form.submit "育成記録をつける", class: "btn btn-success" %>
+                <%= form.submit "育成記録をつける", class: "btn btn-success" %>
               </div>
             </li>
           </ul>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-<div class="d-flex justify-content-center"><%= link_to "Back", :back %></div>
-<main>
+  <% end %>
+  <div class="d-flex justify-content-center"><%= link_to "Back", :back %></div>
+</main>
