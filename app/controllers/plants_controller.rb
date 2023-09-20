@@ -27,6 +27,8 @@ class PlantsController < ApplicationController
     @comments = @plant.comments.includes(:user)
     @comment = Comment.new(commentable: @plant)
     @likes = @plant.likes.includes(:user)
+    @is_followed = current_user.following?(@plant.user) if user_signed_in?
+    @user = @plant.user
   end
 
   def edit

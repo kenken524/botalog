@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/followings'
+  get 'relationships/followers'
   devise_for :users,  controllers: { registrations: 'users/registrations' }
   root to: 'plants#index'
   resources :plants do
@@ -12,5 +14,10 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
-  get 'users/mypage/:id', to: 'users#mypage', as: 'user_mypage'
+  resources :users do
+    member do
+      post 'follow'
+      delete 'unfollow'
+    end
+  end
 end

@@ -1,29 +1,28 @@
 class UsersController < ApplicationController
-  def mypage
-    @user = User.find(params[:id])
+  before_action :set_user, only: [:show, :follow, :unfollow]
+
+  def show
     @plants = Plant.where(user_id: @user.id).order('created_at DESC')
     @carerecords = CareRecord.where(user_id: @user.id).order('created_at DESC')
     @likes = @user.likes.includes(:likeable)
     @bookmarks = @user.bookmarks.includes(:plant)
   end
 
-  def new
+  def follow
+    current_user.follow(@user)
   end
 
-  def edit
-  end
-
-  def update
-  if current_user.update(user_params)
-    redirect_to user_mypage_path
-  else
-    render :edit
-  end
+  def unfollow
+    current_user.unfollow(@user)
   end
 
 private
   def user_params
     params.require(:user).permit(:nickname, :email, :image)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end

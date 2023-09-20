@@ -2,11 +2,6 @@
   <div class="container">
     <div class="row row-cols-1 justify-content-center">
       <div class="card mb-2 shadow-sm" style="width: 30rem;">
-        <div class="card-header d-flex align-items-center justify-content-between my-0 py-0">
-          <div>
-            フォローボタンを配置
-          </div>
-        </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -14,6 +9,11 @@
                 <div>
                   <%= image_tag @user.image, class: "user-mypage-thumbnail rounded-circle" %>
                   <%= @user.nickname %>
+                </div>
+                <div>
+                  <div id="follow-button">
+                    <%= render 'relationships/follow_button' %>
+                  </div>
                 </div>
               </div>
             </li>
@@ -68,24 +68,24 @@
   </ul>
 
   <!-- タブの中身部分全体 -->
-  <div class="tab-content"> 
+  <div class="tab-content">
     <!-- タブの中身（植物一覧） -->
     <div id="plants" class="tab-pane active bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
         <% @plants.each do |plant| %>
-        <div class="col gallery">           
-          <div class="gallery-block">
-            <%= link_to plant_path(plant.id) do %>
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
-            <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_mypage_path(plant.user.id) do %>
-                <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
+          <div class="col gallery">
+            <div class="gallery-block">
+              <%= link_to plant_path(plant.id) do %>
+                <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
-              <%= plant.user.nickname %>
+              <div class="gallery-item-info">
+                <%= link_to user_path(plant.user.id) do %>
+                  <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
+                <% end %>
+                <%= plant.user.nickname %>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
@@ -94,19 +94,19 @@
     <div id="care-records" class="tab-pane bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
         <% @carerecords.each do |carerecord| %>
-        <div class="col gallery">           
-          <div class="gallery-block">
-            <%= link_to care_record_path(carerecord.id) do %>
-              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
-            <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_mypage_path(carerecord.user.id) do %>
-                <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
+          <div class="col gallery">
+            <div class="gallery-block">
+              <%= link_to care_record_path(carerecord.id) do %>
+                <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
-              <%= carerecord.plant.user.nickname %>
+              <div class="gallery-item-info">
+                <%= link_to user_path(carerecord.user.id) do %>
+                  <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
+                <% end %>
+                <%= carerecord.plant.user.nickname %>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
@@ -115,29 +115,63 @@
     <div id="bookmarks" class="tab-pane bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
         <% @bookmarks.each do |bookmark| %>
-        <div class="col gallery">           
-          <div class="gallery-block">
-            <%= link_to plant_path(bookmark.plant) do %>
-              <%= image_tag bookmark.plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
-            <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_mypage_path(bookmark.plant.user.id) do %>
-                <%= image_tag bookmark.plant.user.image, class: "user-thumbnail rounded-circle" %>
+          <div class="col gallery">
+            <div class="gallery-block">
+              <%= link_to plant_path(bookmark.plant) do %>
+                <%= image_tag bookmark.plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
-              <%= bookmark.plant.user.nickname %>
+              <div class="gallery-item-info">
+                <%= link_to user_path(bookmark.plant.user.id) do %>
+                  <%= image_tag bookmark.plant.user.image, class: "user-thumbnail rounded-circle" %>
+                <% end %>
+                <%= bookmark.plant.user.nickname %>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
 
     <!-- フォローユーザー一覧 -->
     <div id="follow-users" class="tab-pane bg-light">
+      <ul class="list-group">
+        <li class="list-group-item align-items-center">
+          <h5>フォローユーザー</h5>
+        </li>
+        <% @user.following.each do |followed| %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= link_to user_path(followed) do %>
+                <%= image_tag followed.image, class: "user-thumbnail rounded-circle" %>
+              <% end %>
+              <div class="pt-2">
+                <h5><%= followed.nickname %></h5>
+              </div>&nbsp;:&nbsp;
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
     <!-- フォロワーユーザー一覧 -->
-    <div id="follower-users" class="tab-pane bg-light">
+    <div id="followed-users" class="tab-pane bg-light">
+      <ul class="list-group">
+        <li class="list-group-item align-items-center">
+          <h5>フォロワーユーザー</h5>
+        </li>
+        <% @user.followers.each do |follower| %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= link_to user_path(follower) do %>
+                <%= image_tag follower.image, class: "user-thumbnail rounded-circle" %>
+              <% end %>
+              <div class="pt-2">
+                <h5><%= follower.nickname %></h5>
+              </div>&nbsp;:&nbsp;
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  </div> 
+  </div>
 </main>

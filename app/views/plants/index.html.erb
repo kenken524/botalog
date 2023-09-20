@@ -43,7 +43,7 @@
                 <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
               <div class="gallery-item-info">
-                <%= link_to user_mypage_path(plant.user.id) do %>
+                <%= link_to user_path(plant.user.id) do %>
                   <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
                 <% end %>
                 <%= plant.user.nickname %>
@@ -64,7 +64,7 @@
                 <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
               <% end %>
               <div class="gallery-item-info">
-                <%= link_to user_mypage_path(carerecord.user.id) do %>
+                <%= link_to user_path(carerecord.user.id) do %>
                   <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
                 <% end %>
                 <%= carerecord.plant.user.nickname %>
@@ -77,16 +77,21 @@
 
     <!-- タブの中身（ユーザー一覧） -->
     <div id="users" class="tab-pane bg-light">
-      <div class="mx-3"><h4>ユーザー</h4></div>
       <ul class="list-group">
+      <li class="list-group-item align-items-center">
+        <h4>ユーザー</h4>
+      </li>
         <% @users.each do |user| %>
           <li class="list-group-item align-items-center">
             <div class="d-flex align-items-center">
-              <%= link_to user_mypage_path(user) do %>
+              <%= link_to user_path(user) do %>
                 <%= image_tag user.image, class: "user-thumbnail rounded-circle" %>
               <% end %>
               <div class="pt-2">
                 <h5><%= user.nickname %></h5>
+              </div>
+              <div class="mx-3"id="follow-button">
+
               </div>
             </div>
           </li>

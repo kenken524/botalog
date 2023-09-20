@@ -24,6 +24,7 @@ class CareRecordsController < ApplicationController
     @comments = @carerecord.comments.includes(:user)
     @comment = Comment.new(commentable: @carerecord)
     @likes = @carerecord.likes.includes(:user)
+    @user = @carerecord.user
   end
 
   def edit
