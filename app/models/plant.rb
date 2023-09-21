@@ -7,4 +7,12 @@ class Plant < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :likes, as: :likable, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+
+  def self.search(search)
+    if search != ""
+      Plant.where('name LIKE(?)', "%#{search}%")
+    else
+      Plant.includes(:user).order('created_at DESC')
+    end
+  end
 end

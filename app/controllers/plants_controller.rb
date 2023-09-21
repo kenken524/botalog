@@ -8,6 +8,12 @@ class PlantsController < ApplicationController
     @users = User.all.order('created_at DESC')
   end
 
+  def search
+    @plants = Plant.search(params[:name])
+    @carerecords = CareRecord.includes(:user, :plant).order('created_at DESC')
+    @users = User.all.order('created_at DESC')
+  end
+
   def new
     @plant = Plant.new
   end

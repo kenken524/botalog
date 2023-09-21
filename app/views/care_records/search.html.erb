@@ -21,10 +21,10 @@
   <!-- タブ部分 -->
   <ul class="nav nav-tabs nav-fill nav-justified">
     <li class="nav-item  m-0 p-0">
-      <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
+      <a href="#plants" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
     </li>
     <li class="nav-item">
-      <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
+      <a href="#care-records" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
     </li>
     <li class="nav-item">
       <a href="#users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user fa-xl"></i></a>
@@ -34,7 +34,7 @@
   <!-- タブの中身部分全体 -->
   <div class="tab-content"> 
     <!-- タブの中身（植物一覧） -->
-    <div id="plants" class="tab-pane active bg-light">
+    <div id="plants" class="tab-pane bg-light">
       <div class="row">
         <div class="col-md-4">
            <%= form_with(url: search_plants_path, method: :get, local: true) do |form| %>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- タブの中身（育成記録一覧） -->
-    <div id="care-records" class="tab-pane bg-light">
+    <div id="care-records" class="tab-pane active bg-light">
       <div class="row">
         <div class="col-md-4">
            <%= form_with(url: search_care_records_path, method: :get, local: true) do |form| %>

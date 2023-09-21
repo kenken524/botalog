@@ -22,7 +22,14 @@ class User < ApplicationRecord
   has_many :followed_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :followed_relationships, source: :followed
 
-  
+  def self.search(search)
+    if search != ""
+      User.where('nickname LIKE(?)', "%#{search}%")
+    else
+      User.all.order('created_at DESC')
+    end
+  end
+
   def follow(user)
     following << user
   end

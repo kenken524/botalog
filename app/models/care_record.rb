@@ -6,4 +6,12 @@ class CareRecord < ApplicationRecord
   belongs_to :plant
   has_many :comments, as: :commentable
   has_many :likes, as: :likable, dependent: :destroy
+
+  def self.search(search)
+    if search.present?
+      joins(:plant).where('plants.name LIKE ?', "%#{search}%")
+    else
+      includes(:plant).order('created_at DESC')
+    end
+  end
 end

@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     @bookmarks = @user.bookmarks.includes(:plant)
   end
 
+  def search
+    @plants = Plant.includes(:user).order('created_at DESC')
+    @carerecords = CareRecord.includes(:user, :plant).order('created_at DESC')
+    @users = User.search(params[:nickname])
+  end
+
   def follow
     current_user.follow(@user)
   end

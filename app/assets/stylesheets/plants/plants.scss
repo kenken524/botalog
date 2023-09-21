@@ -25,11 +25,6 @@ main{
   padding: 0;
 }
 
-.row-cols-3 .gallery .gallery-block {
-  margin: 0;
-  padding: 0;
-}
-
 .gallery-block {
   width: 100%; /* ブロックの幅を設定 */
   overflow: hidden; /* ブロック外のコンテンツを非表示にする */
@@ -84,17 +79,6 @@ main{
   object-fit: cover;
 }
 
-
-
-/* もっと見るボタンを設定 */
-.load-more {
-  text-align: center;
-  padding: 20px 0;
-}
-.load-more button {
-  padding: 10px 20px;
-  font-size: 14px;
-}
 
 /* ナビゲーションバースタイル */
 .user-profile {
