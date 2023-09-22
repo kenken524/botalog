@@ -11,10 +11,10 @@
     <script src="https://kit.fontawesome.com/8bc655f5f6.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <main>
-      <%= render 'shared/header' %>
+    <%= render 'shared/header' %>
+    <main class="p-1">
       <%= yield %>
-      <%= render 'shared/footer' %>
     </main>
+    <%= render 'shared/footer' %>
   </body>
 </html>

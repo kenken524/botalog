@@ -1,4 +1,4 @@
-<main class="p-3">
+<main>
   <!-- 植物詳細カード -->
   <div class="container">
     <div class="row row-cols-1 justify-content-center">
@@ -38,19 +38,17 @@
             </li>
           </ul>
         </div>
-      </div>
-
-      <!-- 編集削除ボタン -->
-      <% if user_signed_in? && current_user.id == @plant.user.id %>
+                      <% if user_signed_in? && current_user.id == @plant.user.id %>
         <div class="d-flex justify-content-center">
-          <%= link_to edit_plant_path(@plant), method: :get, class: "btn btn-success w-100 mb-4" do %>
+          <%= link_to edit_plant_path(@plant), method: :get, class: "btn btn-success w-100 mb-2" do %>
             編集する
           <% end %>
-          <%= link_to plant_path(@plant), method: :delete, class: "btn btn-danger w-100 mb-4", data: { confirm: '本当に削除しますか？' } do %>
+          <%= link_to plant_path(@plant), method: :delete, class: "btn btn-danger w-100 mb-2", data: { confirm: '本当に削除しますか？' } do %>
             削除する
           <% end %>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 
