@@ -1,14 +1,13 @@
 <% if user_signed_in? %>
   <% if @carerecord.likes.exists?(user_id: current_user.id) %>
-    <%= link_to care_record_like_path(@carerecord, care_record_id: @carerecord.id), method: :delete, remote: true, class: "btn btn-sm like-button" do %>
+    <%= link_to care_record_like_path(@carerecord, care_record_id: @carerecord.id), method: :delete, remote: true, class: "btn like-button" do %>
       <i class="fa-solid fa-heart fa-2xl" style="color: #f20202;"></i>:<span class="likes-count"><%= @carerecord.likes.count %></span>
     <% end %>
   <% else %>
-    <%= link_to care_record_likes_path(@carerecord, care_record_id: @carerecord.id), method: :post, remote: true, class: "btn btn-sm like-button" do %>
+    <%= link_to care_record_likes_path(@carerecord, care_record_id: @carerecord.id), method: :post, remote: true, class: "btn like-button" do %>
       <i class="fa-regular fa-heart fa-2xl"></i>:<%= @carerecord.likes.count %>
     <% end %>
   <% end %>
 <% else %>
-  <i class="fa-regular fa-heart fa-2xl"></i> <%= @carerecord.likes.count %>：いいね
-  <%= link_to 'ログインして「いいね」', new_user_session_path, class: "btn btn-primary btn-sm" %>
+  <i class="fa-regular fa-heart fa-xl"></i> <%= @carerecord.likes.count %>
 <% end %>

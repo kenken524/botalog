@@ -1,7 +1,11 @@
+<% if @user.present? && current_user.present? %>
 <% if current_user != @user %>
   <% if current_user.following?(@user) %>
     <%= link_to "アンフォロー", unfollow_user_path(@user), method: :delete, class: "btn btn-secondary btn-sm", remote: true %>
   <% else %>
     <%= link_to "フォロー", follow_user_path(@user), method: :post, class: "btn btn-success btn-sm", remote: true %>
   <% end %>
+  <% end %>
+  <% else %>
+  <%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary btn-sm" %>
 <% end %>
