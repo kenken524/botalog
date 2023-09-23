@@ -7,28 +7,28 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   validates :image, :nickname, :profile, presence: true
 
+  has_many :plants, dependent: :destroy
+  has_many :care_records, through: :plants, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+
+  #画像添付
   has_one_attached :image
-  has_many :plants
-  has_many :care_records, through: :plants
-  has_many :comments
+
+  #メッセージ関連
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
+  #いいね関連
   has_many :likes, dependent: :destroy
   has_many :liked_plants, through: :likes, source: :likable, source_type: 'Plant'
   has_many :liked_care_records, through: :likes, source: :likable, source_type: 'CareRecord'
-  has_many :bookmarks, dependent: :destroy
 
+  #フォロー関連
   has_many :follower_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
-
   has_many :followed_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :followed_relationships, source: :followed
-
-  def self.search(search)
-    if search != ""
-      User.where('nickname LIKE(?)', "%#{search}%")
-    else
-      User.all.order('created_at DESC')
-    end
-  end
 
   def follow(user)
     following << user
@@ -40,5 +40,14 @@ class User < ApplicationRecord
 
   def following?(user)
     following.include?(user)
+  end
+
+  #検索用
+  def self.search(search)
+    if search != ""
+      User.where('nickname LIKE(?)', "%#{search}%")
+    else
+      User.all.order('created_at DESC')
+    end
   end
 end

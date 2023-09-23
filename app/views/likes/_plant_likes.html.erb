@@ -1,13 +1,15 @@
 <% if user_signed_in? %>
   <% if @plant.likes.exists?(user_id: current_user.id) %>
     <%= link_to plant_like_path(@plant, plant_id: @plant.id), method: :delete, remote: true, class: "btn like-button" do %>
-      <i class="fa-solid fa-heart fa-2xl" style="color: #f20202;"></i>:<span class="likes-count"><%= @plant.likes.count %></span>
+      <i class="fa-solid fa-heart fa-xl" style="color: #f20202;"></i> <span class="likes-count"><%= @plant.likes.count %></span>
     <% end %>
   <% else %>
     <%= link_to plant_likes_path(@plant, plant_id: @plant.id), method: :post, remote: true, class: "btn like-button" do %>
-      <i class="fa-regular fa-heart fa-2xl"></i>:<span class="likes-count"><%= @plant.likes.count %></span>
+      <i class="fa-regular fa-heart fa-xl"></i> <span class="likes-count"><%= @plant.likes.count %></span>
     <% end %>
   <% end %>
 <% else %>
-  <i class="fa-regular fa-heart fa-2xl"></i>:<span class="likes-count"><%= @plant.likes.count %></span>
+  <%= link_to new_user_session_path, class: "btn like-button" do %>
+    <i class="fa-regular fa-heart fa-xl"></i> <span class="likes-count"><%= @plant.likes.count %></span>
+  <% end %>
 <% end %>
