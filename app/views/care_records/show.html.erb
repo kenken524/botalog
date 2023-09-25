@@ -26,12 +26,15 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="plant-info-box d-flex justify-content-between">
-                <div class="text-sm">植物名<br><%= @carerecord.plant.name %></div>
-                <div class="text-sm">記録日<br><%= @carerecord.care_date %></div>
+                <div style="font-size:14px;">植物名 : <%= @carerecord.plant.name %></div>
               </div>
             </li>
             <li class="list-group-item">
-              <div class="text-sm">
+              <div style="font-size:14px;">
+                <div style="font-size:14px;">記録日 : <%= @carerecord.care_date %></div>
+              </div>
+            <li class="list-group-item">
+              <div style="font-size:14px;">
                 <%= @carerecord.description %>
               </div>
             </li>

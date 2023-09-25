@@ -6,12 +6,12 @@
         <p class="lead">育てている植物を登録して、育成記録をシェアしよう！</p>
         <p>
           <%= link_to new_plant_path, class: "btn btn-success" do %>
-            <i class="fa-solid fa-seedling"></i> 植物を登録する
+            <i class="fa-solid fa-seedling"></i> 植物投稿
           <% end %>
         </p>
         <p>
-          <%= link_to new_care_record_path, class: "btn btn-success my-2" do %>
-            <i class="fa-solid fa-camera-retro"></i> 育成記録をつける
+          <%= link_to new_care_record_path, class: "btn btn-success " do %>
+            <i class="fa-solid fa-camera-retro"></i> 育成記録
           <% end %>
         </p>
       </div>
@@ -20,7 +20,7 @@
 
   <!-- タブ部分 -->
   <ul class="nav nav-tabs nav-fill nav-justified">
-    <li class="nav-item  m-0 p-0">
+    <li class="nav-item">
       <a href="#plants" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
     </li>
     <li class="nav-item">

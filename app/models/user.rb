@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_one_attached :image
 
   #メッセージ関連
-  has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   #いいね関連
   has_many :likes, dependent: :destroy

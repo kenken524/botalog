@@ -1,0 +1,73 @@
+<main>
+  <div class="container">
+    <div class="row row-cols-1 justify-content-center">
+      <div class="card shadow-sm" style="width: 30rem; height: calc(100vh - 110px);">
+        <div style="font-size: 20px;">
+          <% @entries.each do |e| %>
+            <% if e.user != current_user %>
+              <div class="d-flex align-items-center justify-content-center">
+                <a href="/users/<%= e.user.id %>"><%= image_tag e.user.image, class: "user-mypage-thumbnail rounded-circle" %></a>
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <h5><%= e.user.nickname %></h5>
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <h6>プロフィール</h6>
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <h6><%= e.user.profile %><h6>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <hr>
+
+        <div id="messages-container" class="card-body bg-light" style="overflow-y: scroll; max-height: 70vh;">
+          <div class="message-container">
+            <% @messages.each do |m| %>
+              <% if m.user == current_user %>
+                <div class="d-flex justify-content-end">
+                  <div class="message-bubble right">
+                    <strong><%= m.body %></strong>
+                    <div class="d-flex justify-content-end">
+                      <small><%= m.created_at.strftime("%m/%d/%H:%M") %></small>
+                    </div>
+                  </div>
+                  <%= link_to user_path(m.user.id) do %>
+                    <%= image_tag m.user.image, class: "user-thumbnail rounded-circle" %>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="d-flex justify-content-start">
+                  <%= link_to user_path(m.user.id) do %>
+                    <%= image_tag m.user.image, class: "user-thumbnail rounded-circle" %>
+                  <% end %>
+                  <div class="message-bubble left">
+                    <strong><%= m.body %></strong>
+                    <div class="d-flex justify-content-start">
+                      <small><%= m.created_at.strftime("%m/%d/%H:%M") %></small>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="dmMain">
+          <%= form_for @message do |f| %>
+            <div class="input-group">
+              <%= f.text_field :body, class: "form-control", placeholder: "メッセージを入力して下さい", size: 100 %>
+              <%= f.hidden_field :room_id, value: @room.id %>
+              <div class="input-group-append">
+                <%= f.submit "送信する", class: "btn btn-success" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/assets/scrollo.js"></script>

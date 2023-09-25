@@ -6,7 +6,7 @@ main{
   background-size: cover;
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
-  min-height: 100vh;
+  min-height: calc(100vh - 110px);
 }
 
 /* 全タブ共通スタイル */
@@ -79,6 +79,32 @@ main{
   border-radius: 50%;
   object-fit: cover;
 }
+
+  /* メッセージ表示設定 */
+  .message-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message-bubble {
+    max-width: 70%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    word-wrap: break-word;
+  }
+
+  /* 自身のメッセージは右寄せ */
+  .message-bubble.right {
+    background-color: #00CD00;
+  }
+
+  /* 相手のメッセージは左寄せ */
+  .message-bubble.left {
+    background-color: #f0f0f0; 
+  }
 
 
 /* ナビゲーションバースタイル */

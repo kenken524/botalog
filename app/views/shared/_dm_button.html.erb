@@ -1,0 +1,22 @@
+<div class="user-in">
+  <% if @user.id == current_user.id %>
+    DM一覧ボタンを設置
+  <% else %>
+    <% if @isRoom == true %>
+      <p>
+        <%= link_to room_path(@roomId), class: "btn btn-success btn-sm" do %>
+          <i class="fa-solid fa-envelope fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      </p>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e|%>
+          <% e.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <button type="submit" class="btn btn-success btn-sm">
+          <i class="fa-solid fa-envelope fa-xl" style="color: #ffffff;"></i>
+        </button>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

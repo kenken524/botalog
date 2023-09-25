@@ -10,9 +10,9 @@
             <%= image_tag comment.user.image, class: "user-thumbnail rounded-circle" %>
           <% end %>
           <div class="pt-2">
-            <h5><%= comment.user.nickname %></h5>
+            <h6><%= comment.user.nickname %></h6>
           </div>&nbsp;:&nbsp;
-          <div><%= comment.content %></div>
+          <div style="font-size:14px;"><%= comment.content %></div>
         </div>
         <div style="font-size: 60%;"><%= comment.created_at.to_s(:datetime_jp) %></div>
       </li>
