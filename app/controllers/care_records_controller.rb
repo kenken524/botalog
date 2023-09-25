@@ -27,7 +27,26 @@ class CareRecordsController < ApplicationController
     @comment = Comment.new(commentable: @carerecord)
     @likes = @carerecord.likes.includes(:user)
     @user = @carerecord.user
-  end
+    if user_signed_in? # ユーザーがログインしている場合
+      @currentUserEntry = Entry.where(user_id: current_user.id)
+      @userEntry = Entry.where(user_id: @user.id)
+      unless @user.id == current_user.id
+        @currentUserEntry.each do |cu|
+          @userEntry.each do |u|
+            if cu.room_id == u.room_id
+              @isRoom = true
+              @roomId = cu.room_id
+            end
+          end
+        end
+  
+        if @isRoom != true
+          @room = Room.new
+          @entry = Entry.new
+        end
+      end
+    end
+  end  
 
   def edit
     return unless @carerecord.user != current_user
@@ -56,6 +75,10 @@ class CareRecordsController < ApplicationController
   end
 
   def set_carerecord
-    @carerecord = CareRecord.find(params[:id])
+    begin
+      @carerecord = CareRecord.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: "ユーザーが見つかりませんでした"
+    end
   end
 end

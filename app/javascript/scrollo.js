@@ -1,5 +1,4 @@
-$(document).ready(function() {
-  // ページが読み込まれたらスクロール位置を一番下に設定
+document.addEventListener("DOMContentLoaded", function() {
   scrollToBottom();
 });
 

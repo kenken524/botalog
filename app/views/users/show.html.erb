@@ -62,20 +62,27 @@
   <!-- タブ部分 -->
   <ul class="nav nav-tabs nav-fill justify-content-center">
     <li class="nav-item">
-      <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-xl"></i></a>
+      <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-lg"></i></a>
     </li>
     <li class="nav-item">
-      <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-xl"></i></a>
+      <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-lg"></i></a>
     </li>
     <li class="nav-item">
-      <a href="#bookmarks" class="nav-link" data-bs-toggle="tab"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+      <a href="#bookmarks" class="nav-link" data-bs-toggle="tab"><i class="fa-regular fa-bookmark fa-lg"></i></a>
     </li>
     <li class="nav-item">
-      <a href="#follow-users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user-plus fa-xl"></i></a>
+      <a href="#follow-users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-user-plus fa-lg"></i></a>
     </li>
     <li class="nav-item">
-      <a href="#followed-users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-users fa-xl"></i></a>
+      <a href="#followed-users" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-users fa-lg"></i></a>
     </li>
+    <% if user_signed_in? %>
+    <% if current_user == @user %>
+    <li class="nav-item">
+      <a href="#dms" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-envelope fa-lg" style="color: #ffffff;"></i></a>
+    </li>
+    <% end %>
+    <% end %>
   </ul>
 
   <!-- タブの中身部分全体 -->
@@ -184,5 +191,25 @@
         <% end %>
       </ul>
     </div>
+
+    <!-- DM一覧 -->
+    <div id="dms" class="tab-pane bg-light">
+      <ul class="list-group">
+        <li class="list-group-item align-items-center">
+          <h5>メッセージ一覧</h5>
+        </li>
+        <% @currentUserEntry.each do |entry| %>
+          <% room = entry.room %>
+        <li class="list-group-item align-items-center">
+          <div class="d-flex align-items-center">
+            <%= link_to room, class: "room-link" do %>
+            <% end %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+
   </div>
 </main>

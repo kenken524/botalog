@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    begin
     @room = Room.find(params[:id])
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages.all
@@ -15,6 +16,9 @@ class RoomsController < ApplicationController
       @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
+    end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: "ユーザーが見つかりませんでした"
     end
   end
 end

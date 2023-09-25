@@ -1,13 +1,9 @@
-<div class="user-in">
-  <% if @user.id == current_user.id %>
-    DM一覧ボタンを設置
-  <% else %>
+<% if user_signed_in? %>
+  <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
-      <p>
-        <%= link_to room_path(@roomId), class: "btn btn-success btn-sm" do %>
-          <i class="fa-solid fa-envelope fa-xl" style="color: #ffffff;"></i>
-        <% end %>
-      </p>
+      <%= link_to room_path(@roomId), class: "btn btn-success btn-sm" do %>
+        <i class="fa-solid fa-envelope fa-xl" style="color: #ffffff;"></i>
+      <% end %>
     <% else %>
       <%= form_for @room do |f| %>
         <%= fields_for @entry do |e|%>
@@ -19,4 +15,8 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+<% else %>
+  <%= link_to new_user_session_path, class: "btn btn-success btn-sm" do %>
+    <i class="fa-solid fa-envelope fa-xl" style="color: #ffffff;"></i>
+  <% end %>
+<% end %>

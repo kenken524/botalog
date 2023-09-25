@@ -4,7 +4,7 @@
     <div class="row row-cols-1 justify-content-center">
       <div class="card mb-2 shadow-sm" style="width: auto;">
         <div class="card-header d-flex align-items-center justify-content-between m-0 p-0">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center my-1">
             <%= link_to user_path(@plant.user.id) do %>
               <%= image_tag @plant.user.image, class: "user-thumbnail rounded-circle" %>
             <% end %>
@@ -12,8 +12,13 @@
               <h6><%= @plant.user.nickname %></h6>
             </div>
           </div>
-          <div id="follow-button">
-            <%= render 'relationships/follow_button', user: @user %>
+          <div class="d-flex jusfify-content-end my-1">
+            <div id="follow-button">
+              <%= render 'relationships/follow_button', user: @user %>
+            </div>
+            <div class="user-in mx-1">
+              <%= render partial: "shared/dm_button" %>
+            </div>
           </div>
         </div>
         <%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %>
@@ -25,7 +30,6 @@
             <%= render 'bookmarks/bookmarks' %>
           </div>
         </div>
-        <div class="card-body">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div style="font-size:14px;">植物名 : <%= @plant.name %></div>
