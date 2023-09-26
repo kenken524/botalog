@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @carerecords = CareRecord.where(user_id: @user.id).order('created_at DESC')
     @likes = @user.likes.includes(:likeable)
     @bookmarks = @user.bookmarks.includes(:plant)
+    @message_rooms = @user.entries.includes(:room)
     if user_signed_in? # ユーザーがログインしている場合
       @currentUserEntry = Entry.where(user_id: current_user.id)
       @userEntry = Entry.where(user_id: @user.id)
@@ -50,7 +51,7 @@ private
     begin
       @user = User.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, alert: "ユーザーが見つかりませんでした"
+      redirect_back(fallback_location: root_path)
     end
   end
 

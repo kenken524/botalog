@@ -78,7 +78,7 @@ class CareRecordsController < ApplicationController
     begin
       @carerecord = CareRecord.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, alert: "ユーザーが見つかりませんでした"
+      redirect_back(fallback_location: root_path)
     end
   end
 end

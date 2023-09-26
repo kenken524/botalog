@@ -198,17 +198,22 @@
         <li class="list-group-item align-items-center">
           <h5>メッセージ一覧</h5>
         </li>
-        <% @currentUserEntry.each do |entry| %>
-          <% room = entry.room %>
+                  <% @message_rooms.each do |entry| %>
+            <% room = entry.room %>
         <li class="list-group-item align-items-center">
-          <div class="d-flex align-items-center">
-            <%= link_to room, class: "room-link" do %>
-            <% end %>
-          </div>
+              <%= link_to room_path(room) do %>
+                <!-- ルーム内の最後のメッセージを表示 -->
+                <% if room.messages.last %>
+                  <span><%= room.messages.last.body %></span>
+                <% else %>
+                  <span>メッセージはまだありません。</span>
+                <% end %>
+              <% end %>
         </li>
-        <% end %>
+                  <% end %>
       </ul>
     </div>
+
 
 
   </div>
