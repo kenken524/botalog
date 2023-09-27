@@ -20,6 +20,8 @@
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsPostButton" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-regular fa-square-plus fa-2xl" style="color: #ffffff;"></i>
     </button>
+    <%= link_to rooms_path(id: current_user) do %>
     <i class="fa-solid fa-envelope fa-2xl" style="color: #ffffff;"></i>
+    <% end %>
   </div>
 </nav>

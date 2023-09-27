@@ -62,7 +62,7 @@
   <!-- タブ部分 -->
   <ul class="nav nav-tabs nav-fill justify-content-center">
     <li class="nav-item">
-      <a href="#plants" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-lg"></i></a>
+      <a href="#plants" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-seedling fa-lg"></i></a>
     </li>
     <li class="nav-item">
       <a href="#care-records" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-camera-retro fa-lg"></i></a>
@@ -79,7 +79,7 @@
     <% if user_signed_in? %>
     <% if current_user == @user %>
     <li class="nav-item">
-      <a href="#dms" class="nav-link" data-bs-toggle="tab"><i class="fa-solid fa-envelope fa-lg"></i></a>
+      <a href="#dms" class="nav-link active" data-bs-toggle="tab"><i class="fa-solid fa-envelope fa-lg"></i></a>
     </li>
     <% end %>
     <% end %>
@@ -88,7 +88,7 @@
   <!-- タブの中身部分全体 -->
   <div class="tab-content">
     <!-- タブの中身（植物一覧） -->
-    <div id="plants" class="tab-pane active bg-light">
+    <div id="plants" class="tab-pane bg-light">
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
         <% @plants.each do |plant| %>
         <div class="col gallery">
@@ -193,7 +193,7 @@
     </div>
 
     <!-- DM一覧 -->
-<div id="dms" class="tab-pane bg-light dms">
+<div id="dms" class="tab-pane active bg-light dms">
   <ul class="list-group">
     <li class="list-group-item align-items-center">
       <h5>メッセージ一覧</h5>
@@ -208,7 +208,7 @@
         </div>
           <!-- ルーム内の最後のメッセージを表示 -->
         <%= link_to room_path(room) do %>
-          <div class="<%= room.messages.last&.user_id == current_user.id ? 'message-bubble right' : 'message-bubble left' %>" style="display: inline-block; color: black;">
+          <div class="message-bubble left" style="display: inline-block; color: black;">
             <% if room.messages.last %>
               <div>
               <strong><%= room.messages.last.body %></strong>

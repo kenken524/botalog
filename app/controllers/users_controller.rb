@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :authenticate_user!, only: [:follow, :unfollow]
 
   def show
     @plants = Plant.where(user_id: @user.id).order('created_at DESC')
@@ -7,9 +8,15 @@ class UsersController < ApplicationController
     @likes = @user.likes.includes(:likeable)
     @bookmarks = @user.bookmarks.includes(:plant)
     @message_rooms = @user.entries.includes(:room)
+    @message_rooms = @message_rooms.sort_by do |entry|
+      room = entry.room
+      last_message = room.messages.last
+      last_message ? last_message.created_at : Time.at(0) # メッセージがない場合は古い時間を使用
+    end.reverse
     if user_signed_in? # ユーザーがログインしている場合
       @currentUserEntry = Entry.where(user_id: current_user.id)
       @userEntry = Entry.where(user_id: @user.id)
+      @another_entry = Entry.where.not(user_id: current_user.id)
       unless @user.id == current_user.id
         @currentUserEntry.each do |cu|
           @userEntry.each do |u|
