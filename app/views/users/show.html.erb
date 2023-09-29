@@ -50,7 +50,7 @@
           <%= link_to edit_user_registration_path(@user), method: :get, class: "btn btn-success w-100 mb-2" do %>
             編集する
           <% end %>
-          <%= link_to user_registration_path(@user), method: :delete, class: "btn btn-danger w-100 mb-2", data: { confirm: '本当に削除しますか？' } do %>
+          <%= link_to user_path(@user), method: :delete, class: "btn btn-danger w-100 mb-2", data: { confirm: '本当に削除しますか？' } do %>
             削除する
           <% end %>
         </div>
@@ -193,37 +193,39 @@
     </div>
 
     <!-- DM一覧 -->
-<div id="dms" class="tab-pane bg-light dms">
-  <ul class="list-group">
-    <li class="list-group-item align-items-center">
-      <h5>メッセージ一覧</h5>
-    </li>
-    <% @message_rooms.each do |entry| %>
-      <% room = entry.room %>
-      <% opposite_entry = @another_entry.find_by(room: room) %>
+  <div id="dms" class="tab-pane bg-light dms">
+    <ul class="list-group">
       <li class="list-group-item align-items-center">
-        <div class="d-flex align-items-center">
-          <%= image_tag opposite_entry.user.image, class: "user-thumbnail rounded-circle" %>
-            <strong><%= opposite_entry.user.nickname %></strong><small>さんとのメッセージ</small>
-        </div>
-          <!-- ルーム内の最後のメッセージを表示 -->
-        <%= link_to room_path(room) do %>
-          <div class="<%= room.messages.last&.user_id == current_user.id ? 'message-bubble right' : 'message-bubble left' %>" style="display: inline-block; color: black;">
-            <% if room.messages.last %>
-              <div>
-              <strong><%= room.messages.last.body %></strong>
-              </div>
-              <div>
-                <small><%= room.messages.last.created_at.strftime("%m/%d/%H:%M") %></small>
-              </div>
-            <% else %>
-              <span>メッセージはまだありません。</span>
-            <% end %>
-        </div>
-          <% end %>
+        <h5>メッセージ一覧</h5>
       </li>
-    <% end %>
-  </ul>
-</div>
+      <% @message_rooms.each do |entry| %>
+        <% room = entry.room %>
+        <% opposite_entry = @another_entry&.find_by(room: room) %>
+        <% if opposite_entry.present? && opposite_entry.user.present? %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= image_tag opposite_entry.user.image, class: "user-thumbnail rounded-circle" %>
+              <strong><%= opposite_entry.user.nickname %></strong><small>さんとのメッセージ</small>
+            </div>
+            <!-- ルーム内の最後のメッセージを表示 -->
+            <%= link_to room_path(room) do %>
+              <div class="<%= room.messages.last&.user_id == current_user.id ? 'message-bubble right' : 'message-bubble left' %>" style="display: inline-block; color: black;">
+                <% if room.messages.last %>
+                  <div>
+                    <strong><%= room.messages.last.body %></strong>
+                  </div>
+                  <div>
+                    <small><%= room.messages.last.created_at.strftime("%m/%d/%H:%M") %></small>
+                  </div>
+                <% else %>
+                    メッセージはまだありません。
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
   </div>
 </main>

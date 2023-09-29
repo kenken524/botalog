@@ -86,144 +86,150 @@
   </ul>
 
   <!-- タブの中身部分全体 -->
-  <div class="tab-content">
-    <!-- タブの中身（植物一覧） -->
-    <div id="plants" class="tab-pane bg-light">
-      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-        <% @plants.each do |plant| %>
-        <div class="col gallery">
-          <div class="gallery-block">
-            <%= link_to plant_path(plant.id) do %>
-              <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+<div class="tab-content">
+  <!-- タブの中身（植物一覧） -->
+  <div id="plants" class="tab-pane bg-light">
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+      <% @plants.each do |plant| %>
+      <div class="col gallery">
+        <div class="gallery-block">
+          <%= link_to plant_path(plant.id) do %>
+            <%= image_tag plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+          <% end %>
+          <div class="gallery-item-info">
+            <%= link_to user_path(plant.user.id) do %>
+              <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
             <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_path(plant.user.id) do %>
-                <%= image_tag plant.user.image, class: "user-thumbnail rounded-circle" %>
-              <% end %>
-              <%= plant.user.nickname %>
-            </div>
+            <%= plant.user.nickname %>
           </div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
+  </div>
 
-    <!-- タブの中身（育成記録一覧） -->
-    <div id="care-records" class="tab-pane bg-light">
-      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-        <% @carerecords.each do |carerecord| %>
-        <div class="col gallery">
-          <div class="gallery-block">
-            <%= link_to care_record_path(carerecord.id) do %>
-              <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
+  <!-- タブの中身（育成記録一覧） -->
+  <div id="care-records" class="tab-pane bg-light">
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+      <% @carerecords.each do |carerecord| %>
+      <div class="col gallery">
+        <div class="gallery-block">
+          <%= link_to care_record_path(carerecord.id) do %>
+            <%= image_tag carerecord.image, alt: "ギャラリー画像", class: "gallery-image" %>
+          <% end %>
+          <div class="gallery-item-info">
+            <%= link_to user_path(carerecord.user.id) do %>
+              <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
             <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_path(carerecord.user.id) do %>
-                <%= image_tag carerecord.user.image, class: "user-thumbnail rounded-circle" %>
-              <% end %>
-              <%= carerecord.plant.user.nickname %>
-            </div>
+            <%= carerecord.plant.user.nickname %>
           </div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
+  </div>
 
-    <!-- ブックマーク一覧 -->
-    <div id="bookmarks" class="tab-pane bg-light">
-      <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
-        <% @bookmarks.each do |bookmark| %>
-        <div class="col gallery">
-          <div class="gallery-block">
-            <%= link_to plant_path(bookmark.plant) do %>
-              <%= image_tag bookmark.plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+  <!-- ブックマーク一覧 -->
+  <div id="bookmarks" class="tab-pane bg-light">
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 bg-light py-2">
+      <% @bookmarks.each do |bookmark| %>
+      <div class="col gallery">
+        <div class="gallery-block">
+          <%= link_to plant_path(bookmark.plant) do %>
+            <%= image_tag bookmark.plant.image, alt: "ギャラリー画像", class: "gallery-image" %>
+          <% end %>
+          <div class="gallery-item-info">
+            <%= link_to user_path(bookmark.plant.user.id) do %>
+              <%= image_tag bookmark.plant.user.image, class: "user-thumbnail rounded-circle" %>
             <% end %>
-            <div class="gallery-item-info">
-              <%= link_to user_path(bookmark.plant.user.id) do %>
-                <%= image_tag bookmark.plant.user.image, class: "user-thumbnail rounded-circle" %>
-              <% end %>
-              <%= bookmark.plant.user.nickname %>
-            </div>
+            <%= bookmark.plant.user.nickname %>
           </div>
         </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
+  </div>
 
-    <!-- フォローユーザー一覧 -->
-    <div id="follow-users" class="tab-pane bg-light">
-      <ul class="list-group">
-        <li class="list-group-item align-items-center">
-          <h5>フォローユーザー</h5>
-        </li>
-        <% @user.following.each do |followed| %>
-        <li class="list-group-item align-items-center">
-          <div class="d-flex align-items-center">
-            <%= link_to user_path(followed) do %>
-              <%= image_tag followed.image, class: "user-thumbnail rounded-circle" %>
-            <% end %>
-            <div class="pt-2">
-              <h5><%= followed.nickname %></h5>
-            </div>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <!-- フォロワーユーザー一覧 -->
-    <div id="followed-users" class="tab-pane bg-light">
-      <ul class="list-group">
-        <li class="list-group-item align-items-center">
-          <h5>フォロワーユーザー</h5>
-        </li>
-        <% @user.followers.each do |follower| %>
-        <li class="list-group-item align-items-center">
-          <div class="d-flex align-items-center">
-            <%= link_to user_path(follower) do %>
-              <%= image_tag follower.image, class: "user-thumbnail rounded-circle" %>
-            <% end %>
-            <div class="pt-2">
-              <h5><%= follower.nickname %></h5>
-            </div>
-          </div>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <!-- DM一覧 -->
-<div id="dms" class="tab-pane active bg-light dms">
-  <ul class="list-group">
-    <li class="list-group-item align-items-center">
-      <h5>メッセージ一覧</h5>
-    </li>
-    <% @message_rooms.each do |entry| %>
-      <% room = entry.room %>
-      <% opposite_entry = @another_entry.find_by(room: room) %>
+  <!-- フォローユーザー一覧 -->
+  <div id="follow-users" class="tab-pane bg-light">
+    <ul class="list-group">
+      <li class="list-group-item align-items-center">
+        <h5>フォローユーザー</h5>
+      </li>
+      <% @user.following.each do |followed| %>
       <li class="list-group-item align-items-center">
         <div class="d-flex align-items-center">
-          <%= image_tag opposite_entry.user.image, class: "user-thumbnail rounded-circle" %>
-            <strong><%= opposite_entry.user.nickname %></strong><small>さんとのメッセージ</small>
-        </div>
-          <!-- ルーム内の最後のメッセージを表示 -->
-        <%= link_to room_path(room) do %>
-          <div class="message-bubble left" style="display: inline-block; color: black;">
-            <% if room.messages.last %>
-              <div>
-              <strong><%= room.messages.last.body %></strong>
-              </div>
-              <div>
-                <small><%= room.messages.last.created_at.strftime("%m/%d/%H:%M") %></small>
-              </div>
-            <% else %>
-              <span>メッセージはまだありません。</span>
-            <% end %>
-        </div>
+          <%= link_to user_path(followed) do %>
+            <%= image_tag followed.image, class: "user-thumbnail rounded-circle" %>
           <% end %>
+          <div class="pt-2">
+            <h5><%= followed.nickname %></h5>
+          </div>
+        </div>
       </li>
-    <% end %>
-  </ul>
-</div>
+      <% end %>
+    </ul>
   </div>
+
+  <!-- フォロワーユーザー一覧 -->
+  <div id="followed-users" class="tab-pane bg-light">
+    <ul class="list-group">
+      <li class="list-group-item align-items-center">
+        <h5>フォロワーユーザー</h5>
+      </li>
+      <% @user.followers.each do |follower| %>
+      <li class="list-group-item align-items-center">
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(follower) do %>
+            <%= image_tag follower.image, class: "user-thumbnail rounded-circle" %>
+          <% end %>
+          <div class="pt-2">
+            <h5><%= follower.nickname %></h5>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- DM一覧 -->
+  <% if user_signed_in? %>
+  <% if current_user == @user %>
+  <div id="dms" class="tab-pane active bg-light dms">
+    <ul class="list-group">
+      <li class="list-group-item align-items-center">
+        <h5>メッセージ一覧</h5>
+      </li>
+      <% @message_rooms.each do |entry| %>
+        <% room = entry.room %>
+        <% opposite_entry = @another_entry&.find_by(room: room) %>
+        <% if opposite_entry.present? && opposite_entry.user.present? %>
+          <li class="list-group-item align-items-center">
+            <div class="d-flex align-items-center">
+              <%= image_tag opposite_entry.user.image, class: "user-thumbnail rounded-circle" %>
+              <strong><%= opposite_entry.user.nickname %></strong><small>さんとのメッセージ</small>
+            </div>
+            <!-- ルーム内の最後のメッセージを表示 -->
+            <%= link_to room_path(room) do %>
+              <div class="<%= room.messages.last&.user_id == current_user.id ? 'message-bubble right' : 'message-bubble left' %>" style="display: inline-block; color: black;">
+                <% if room.messages.last %>
+                  <div>
+                    <strong><%= room.messages.last.body %></strong>
+                  </div>
+                  <div>
+                    <small><%= room.messages.last.created_at.strftime("%m/%d/%H:%M") %></small>
+                  </div>
+                <% else %>
+                    メッセージはまだありません。
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <% end %>
+</div>
 </main>

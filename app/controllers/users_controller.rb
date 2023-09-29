@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :set_user, only: [:show, :destroy, :follow, :unfollow]
   before_action :authenticate_user!, only: [:follow, :unfollow]
 
   def show
@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     end
   end 
 
+  def destroy
+    @user.destroy if @user == current_user
+
+    redirect_to root_path
+  end
+
   def search
     @plants = Plant.includes(:user).order('created_at DESC')
     @carerecords = CareRecord.includes(:user, :plant).order('created_at DESC')
@@ -48,7 +54,7 @@ class UsersController < ApplicationController
   def unfollow
     current_user.unfollow(@user)
   end
-
+  
 private
   def user_params
     params.require(:user).permit(:nickname, :email, :image)

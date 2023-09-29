@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'relationships/followings'
   get 'relationships/followers'
-  devise_for :users,  controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to: 'plants#index'
   resources :plants do
     resources :comments, module: :plants
