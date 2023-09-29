@@ -36,8 +36,18 @@ class UsersController < ApplicationController
   end 
 
   def destroy
+    # ユーザーに関連するエントリーを取得
+    entries = @user.entries.includes(:room)
+  
+    # エントリーに関連するルームを削除
+    entries.each do |entry|
+      room = entry.room
+      room.destroy if room.present?
+    end
+  
+    # ユーザーを削除
     @user.destroy if @user == current_user
-
+  
     redirect_to root_path
   end
 

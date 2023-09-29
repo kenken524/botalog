@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
+  resources :users, only: [:show, :destroy] do
     member do
       post 'follow'
       delete 'unfollow'
