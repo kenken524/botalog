@@ -2,6 +2,10 @@ class CareRecordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_carerecord, only: [:show, :edit, :update, :destroy]
 
+  def index
+    redirect_back(fallback_location: root_path)
+  end
+  
   def search
     @plants = Plant.includes(:user).order('created_at DESC')
     @carerecords = CareRecord.search(params[:name])

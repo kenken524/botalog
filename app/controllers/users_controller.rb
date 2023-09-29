@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy, :follow, :unfollow]
   before_action :authenticate_user!, only: [:follow, :unfollow]
 
+  def index
+    redirect_back(fallback_location: root_path)
+  end
+
   def show
     @plants = Plant.where(user_id: @user.id).order('created_at DESC')
     @carerecords = CareRecord.where(user_id: @user.id).order('created_at DESC')
