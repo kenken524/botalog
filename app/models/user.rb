@@ -8,8 +8,8 @@ class User < ApplicationRecord
   # Validations
   validates :password, presence: true, on: :create
   validates :image, :nickname, :profile, presence: true
-  validates :profile, length: { maximum: 100, message: "プロフィールは100文字以内です。" }
-  validates :nickname, length: { maximum: 12, message: "ニックネームは12文字以内です。" }
+  validates :profile, length: { maximum: 100, message: "は100文字以内です。" }
+  validates :nickname, length: { maximum: 12, message: "は12文字以内です。" }
 
   # Associations
   has_many :plants, dependent: :destroy

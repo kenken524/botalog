@@ -1,5 +1,6 @@
 class CareRecord < ApplicationRecord
   validates :image, :description, :care_date, presence: true
+  validates :description, length: { maximum: 500 }
 
   has_one_attached :image
   belongs_to :user
