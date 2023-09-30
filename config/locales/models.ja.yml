@@ -2,14 +2,48 @@ ja:
   activerecord:
     attributes:
       user:
-        nickname: ニックネーム
-        profile: プロフィール
-        image: プロフィール画像
-        email: メールアドレス
-        password: パスワード
+        nickname: "ニックネーム"
+        profile: "プロフィール"
+        image: "プロフィール画像"
+        email: "メールアドレス"
+        password: "パスワード"
+      plant:
+        name: "植物名"
+        image: "画像"
+        description: "説明"
+        start_date: "管理開始日"
+      care_record:
+        image: "画像"
+        plant: "植物"
+        description: "説明"
+        care_date: "記録日"
+
     errors:
+      messages:
+        blank: "が未入力です"
+        too_short: "が短すぎます"
+        too_long: "が長すぎます"
+        required: "を選択してください"
+
       models:
         user:
-          blank: が未入力です
-          too_short: が短すぎます。
-          too_long: が長すぎます。
+          attributes:
+            nickname: {}
+            profile: {}
+            image: {}
+            email: {}
+            password: {}
+
+        plant:
+          attributes:
+            name: {}
+            image: {}
+            description: {}
+            start_date: {}
+
+        care_record:
+          attributes:
+            image: {}
+            plant: {}
+            description: {}
+            care_date: {}

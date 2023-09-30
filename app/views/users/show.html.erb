@@ -208,7 +208,7 @@
               <strong><%= opposite_entry.user.nickname %></strong><small>さんとのメッセージ</small>
             </div>
             <!-- ルーム内の最後のメッセージを表示 -->
-            <%= link_to room_path(room) do %>
+            <%= link_to room_path(room), data: {"turbolinks" => false} do %>
               <div class="<%= room.messages.last&.user_id == current_user.id ? 'message-bubble right' : 'message-bubble left' %>" style="display: inline-block; color: black;">
                 <% if room.messages.last %>
                   <div>
