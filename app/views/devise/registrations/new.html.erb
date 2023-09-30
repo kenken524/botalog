@@ -11,8 +11,9 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="field">
+                <div class="d-flex justify-content-center" id="new-user-image"></div>
                 <%= f.label :プロフィール写真, class: "form-label" %><br />
-                <%= f.file_field :image, autocomplete: "image", class: "form-control" %>
+                <%= f.file_field :image, autocomplete: "image", class: "form-control", id: "user_image" %>
               </div>
             </li>
             <li class="list-group-item">
