@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        profile: プロフィール
+        image: プロフィール画像
+        email: メールアドレス
+        password: パスワード
+    errors:
+      models:
+        user:
+          blank: が未入力です
+          too_short: が短すぎます。
+          too_long: が長すぎます。
