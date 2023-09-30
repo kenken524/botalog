@@ -9,8 +9,9 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="field">
+                <div class="d-flex justify-content-center" id="new-post-image"><%= image_tag @plant.image, alt: "植物画像", class: "img-fluid" %></div>
                 <%= form.label :image, "画像", class: "form-label" %><br />
-                <%= form.file_field :image, id: "item-image", class: "form-control" %>
+                <%= form.file_field :image, id: "item-image", class: "form-control", id: "post_image" %>
               </div>
             </li>
             <li class="list-group-item">
@@ -33,7 +34,7 @@
             </li>
             <li class="list-group-item">
               <div class="actions d-flex justify-content-center">
-                <%= form.submit "植物を登録する", class: "btn btn-success" %>
+                <%= form.submit "植物を更新", class: "btn btn-success" %>
               </div>
             </li>
           </ul>

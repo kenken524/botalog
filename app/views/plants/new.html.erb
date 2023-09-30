@@ -9,8 +9,9 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <div class="field">
+                <div class="d-flex justify-content-center" id="new-post-image"></div>
                 <%= form.label :image, "画像", class: "form-label" %><br />
-                <%= form.file_field :image, id: "item-image", class: "form-control" %>
+                <%= form.file_field :image, id: "item-image", class: "form-control", id: "post_image" %>
               </div>
             </li>
             <li class="list-group-item">
