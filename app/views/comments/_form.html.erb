@@ -1,4 +1,4 @@
-<%= form_with(model: [commentable, Comment.new], url: polymorphic_path([commentable, :comments]), local: true) do |form| %>
+<%= form_with(model: [commentable, Comment.new], url: polymorphic_path([commentable, :comments]), remote: true) do |form| %>
   <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
   <%= form.hidden_field :commentable_id, value: commentable.id %>
 
@@ -7,6 +7,15 @@
   </div>
 
   <div class="mb-3 mx-3">
-    <%= form.submit 'コメントする', class: 'btn btn-success' %>
+    <%= form.submit 'コメントする', class: 'btn btn-success', id: 'comment-submit-button' %>
   </div>
+
+  <%# JavaScriptを直接記述する %>
+  <script>
+    document.addEventListener('ajax:success', function(event) {
+      // コメントボタンが押されたときにテキストエリアを空にする
+      var form = event.target;
+      form.querySelector('textarea').value = '';
+    });
+  </script>
 <% end %>

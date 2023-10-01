@@ -1,0 +1,7 @@
+// コメント一覧を更新
+var carerecordcomments = document.getElementById('carerecord-comments');
+if (carerecordcomments) {
+  carerecordcomments.innerHTML = '<%= j(render partial: 'comments/comments', locals: { comments: @carerecord.comments }) %>';
+}
+
+window.scrollTo(0, document.body.scrollHeight);

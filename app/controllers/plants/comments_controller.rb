@@ -5,12 +5,7 @@ class Plants::CommentsController < ApplicationController
   def create
     @comment = @plant.comments.new(comment_params)
     @comment.user = current_user
-
-    if @comment.save
-      redirect_to @plant, notice: 'コメントが追加されました。'
-    else
-      render 'plants/show'
-    end
+    @comment.save
   end
 
   private

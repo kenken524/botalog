@@ -5,12 +5,12 @@
         <h1 class="fw-light"><i class="fa-solid fa-seedling"> Botalog</i></h1>
         <p class="lead">育てている植物を登録して、育成記録をシェアしよう！</p>
         <p>
-          <%= link_to new_plant_path, class: "btn btn-success" do %>
+          <%= link_to new_plant_path, class: "btn btn-success", data: {"turbolinks" => false} do %>
             <i class="fa-solid fa-seedling"></i> 植物投稿
           <% end %>
         </p>
         <p>
-          <%= link_to new_care_record_path, class: "btn btn-success " do %>
+          <%= link_to new_care_record_path, class: "btn btn-success ", data: {"turbolinks" => false} do %>
             <i class="fa-solid fa-camera-retro"></i> 育成記録
           <% end %>
         </p>

@@ -1,0 +1,7 @@
+// コメント一覧を更新
+var plantcomments = document.getElementById('plant-comments');
+if (plantcomments) {
+  plantcomments.innerHTML = '<%= j(render partial: 'comments/comments', locals: { comments: @plant.comments }) %>';
+}
+
+window.scrollTo(0, document.body.scrollHeight);

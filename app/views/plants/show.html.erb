@@ -101,7 +101,9 @@
       <% else %>
         <%= link_to 'ログインしてコメントする', new_user_session_path %>
       <% end %>
+      <div id="plant-comments">
       <%= render 'comments/comments', comments: @plant.comments %>
+      </div>
     </div>
 
     <!-- タブの中身（いいねユーザー一覧） -->
