@@ -1,6 +1,6 @@
 class CareRecord < ApplicationRecord
   validates :image, :description, :care_date, presence: true
-  validates :description, length: { maximum: 500, message: "は100文字以内です。" }
+  validates :description, length: { maximum: 500, message: "は500文字以内です。" }
 
   has_one_attached :image
   belongs_to :user

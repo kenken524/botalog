@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :bookmark do
-    user { nil }
-    plant { nil }
+    association :user, factory: :user
+    association :plant, factory: :plant
   end
 end
