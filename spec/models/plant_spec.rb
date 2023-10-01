@@ -11,7 +11,7 @@ RSpec.describe Plant, type: :model do
         expect(@plant).to be_valid
       end
     end
-    context '新規登録できないとき' do
+    context '植物登録できないとき' do
       it 'nameが空では登録できない' do
         @plant.name = ''
         @plant.valid?
