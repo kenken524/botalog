@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :image, :nickname, :profile, presence: true
   validates :profile, length: { maximum: 100, message: "は100文字以内です。" }
   validates :nickname, length: { maximum: 12, message: "は12文字以内です。" }
+  validate :password_complexity
 
   # Associations
   has_many :plants, dependent: :destroy
@@ -54,6 +55,16 @@ class User < ApplicationRecord
       where('nickname LIKE ?', "%#{search}%")
     else
       all.order(created_at: :desc)
+    end
+  end
+
+  private
+
+  def password_complexity
+    return if password.blank?
+
+    unless password.match(/\A(?:[0-9]+|[a-zA-Z]+)\z/)
+      errors.add :password, 'は半角英数字のどちらかを含む形式で入力してください'
     end
   end
 end

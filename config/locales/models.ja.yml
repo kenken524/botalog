@@ -7,6 +7,7 @@ ja:
         image: "プロフィール画像"
         email: "メールアドレス"
         password: "パスワード"
+        password_confirmation: "パスワード再確認"
       plant:
         name: "植物名"
         image: "画像"
@@ -24,6 +25,9 @@ ja:
         too_short: "が短すぎます"
         too_long: "が長すぎます"
         required: "を選択してください"
+        taken: は既に登録されています。
+        invalid: は@を含めてください。
+        confirmation: "が一致していません"
 
       models:
         user:

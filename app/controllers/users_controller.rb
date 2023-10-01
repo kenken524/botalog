@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:follow, :unfollow]
 
   def index
-    redirect_back(fallback_location: root_path)
+    redirect_to root_path
   end
 
   def show
