@@ -17,11 +17,11 @@ class UsersController < ApplicationController
       last_message = room.messages.last
       last_message ? last_message.created_at : Time.at(0) # メッセージがない場合は古い時間を使用
     end.reverse
-    if user_signed_in? # ユーザーがログインしている場合
+    return unless user_signed_in? # ユーザーがログインしている場合
       @currentUserEntry = Entry.where(user_id: current_user.id)
       @userEntry = Entry.where(user_id: @user.id)
       @another_entry = Entry.where.not(user_id: current_user.id)
-      unless @user.id == current_user.id
+      return if @user.id == current_user.id
         @currentUserEntry.each do |cu|
           @userEntry.each do |u|
             if cu.room_id == u.room_id
@@ -31,12 +31,12 @@ class UsersController < ApplicationController
           end
         end
   
-        if @isRoom != true
+        return unless @isRoom != true
           @room = Room.new
           @entry = Entry.new
-        end
-      end
-    end
+        
+      
+    
   end 
 
   def destroy
@@ -75,11 +75,11 @@ private
   end
 
   def set_user
-    begin
+    
       @user = User.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_back(fallback_location: root_path)
-    end
+    
   end
 
 end

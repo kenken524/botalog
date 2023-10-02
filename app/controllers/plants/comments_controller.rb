@@ -5,9 +5,10 @@ class Plants::CommentsController < ApplicationController
   def create
     @comment = @plant.comments.new(comment_params)
     @comment.user = current_user
-    unless @comment.save 
-      render 'error'       
-    end
+
+    return if @comment.save 
+      render 'error'
+    
   end
 
   private

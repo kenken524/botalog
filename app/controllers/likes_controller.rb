@@ -4,7 +4,6 @@ class LikesController < ApplicationController
   def create
     @likable = find_likable
     if @likable.likes.exists?(user_id: current_user.id)
-      flash[:alert] = "すでにいいね済みです。"
       redirect_back(fallback_location: root_path)
     else
       @like = Like.create(likable: @likable, user: current_user)
@@ -15,11 +14,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find_by(likable: find_likable, user: current_user)
-    if @like.user == current_user
-      @like.destroy
-    else
-      flash[:alert] = "いいねの取り消しに失敗しました。"
-    end
+    @like.destroy if @like.user == current_user
     @plant = find_likable
     @carerecord = find_likable
   end

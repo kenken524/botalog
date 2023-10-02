@@ -31,10 +31,10 @@ class CareRecordsController < ApplicationController
     @comment = Comment.new(commentable: @carerecord)
     @likes = @carerecord.likes.includes(:user)
     @user = @carerecord.user
-    if user_signed_in? # ユーザーがログインしている場合
+    return unless user_signed_in? # ユーザーがログインしている場合
       @currentUserEntry = Entry.where(user_id: current_user.id)
       @userEntry = Entry.where(user_id: @user.id)
-      unless @user.id == current_user.id
+      return if @user.id == current_user.id
         @currentUserEntry.each do |cu|
           @userEntry.each do |u|
             if cu.room_id == u.room_id
@@ -44,12 +44,12 @@ class CareRecordsController < ApplicationController
           end
         end
   
-        if @isRoom != true
+        return unless @isRoom != true
           @room = Room.new
           @entry = Entry.new
-        end
-      end
-    end
+        
+      
+    
   end  
 
   def edit
@@ -79,10 +79,10 @@ class CareRecordsController < ApplicationController
   end
 
   def set_carerecord
-    begin
+    
       @carerecord = CareRecord.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_back(fallback_location: root_path)
-    end
+    
   end
 end

@@ -5,9 +5,10 @@ class CareRecords::CommentsController < ApplicationController
   def create
     @comment = @carerecord.comments.new(comment_params)
     @comment.user = current_user
-    unless @comment.save 
-      render 'error'       
-    end
+
+    return if @comment.save 
+      render 'error'
+    
   end
 
   private

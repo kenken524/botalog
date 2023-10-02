@@ -35,10 +35,10 @@ class PlantsController < ApplicationController
     @likes = @plant.likes.includes(:user)
     @is_followed = current_user.following?(@plant.user) if user_signed_in?
     @user = @plant.user
-    if user_signed_in? # ユーザーがログインしている場合
+    return unless user_signed_in? # ユーザーがログインしている場合
       @currentUserEntry = Entry.where(user_id: current_user.id)
       @userEntry = Entry.where(user_id: @user.id)
-      unless @user.id == current_user.id
+      return if @user.id == current_user.id
         @currentUserEntry.each do |cu|
           @userEntry.each do |u|
             if cu.room_id == u.room_id
@@ -48,12 +48,12 @@ class PlantsController < ApplicationController
           end
         end
   
-        if @isRoom != true
+        return unless @isRoom != true
           @room = Room.new
           @entry = Entry.new
-        end
-      end
-    end
+        
+      
+    
   end 
 
   def edit
@@ -83,10 +83,10 @@ class PlantsController < ApplicationController
   end
 
   def set_plant
-    begin
+    
       @plant = Plant.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_back(fallback_location: root_path)
-    end
+    
   end
 end

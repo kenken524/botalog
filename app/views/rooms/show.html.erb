@@ -55,11 +55,11 @@
 
         <div class="dmMain">
           <%= form_for @message do |f| %>
-<% if flash[:alert].present? %>
-  <div class="alert alert-danger">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
+            <% if flash[:alert].present? %>
+              <div class="alert alert-danger">
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
             <div class="input-group">
               <%= f.text_field :body, class: "form-control", placeholder: "メッセージを入力して下さい", size: 100 %>
               <%= f.hidden_field :room_id, value: @room.id %>
