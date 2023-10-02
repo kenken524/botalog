@@ -1,21 +1,22 @@
 <% if comments.any? %>
   <ul class="list-group">
-    <li class="list-group-item align-items-center">
-    <h5>コメント一覧</h5>
-    </li>
     <% comments.each do |comment| %>
-      <li class="list-group-item align-items-center">
-        <div class="d-flex align-items-center">
-          <%= link_to user_path(comment.user.id) do %>
-            <%= image_tag comment.user.image, class: "user-thumbnail rounded-circle" %>
+      <% if comment.content.present? %>
+        <li class="list-group-item align-items-center">
+          <div class="d-flex align-items-center">
+            <%= link_to user_path(comment.user.id) do %>
+              <%= image_tag comment.user.image, class: "user-thumbnail rounded-circle" %>
+            <% end %>
+            <div class="pt-2">
+              <h6><%= comment.user.nickname %></h6>
+            </div>&nbsp;:&nbsp;
+            <div style="font-size:14px;"><%= comment.content %></div>
+          </div>
+          <% if comment.created_at.present? %>
+            <div style="font-size: 60%;"><%= comment.created_at.to_s(:datetime_jp) %></div>
           <% end %>
-          <div class="pt-2">
-            <h6><%= comment.user.nickname %></h6>
-          </div>&nbsp;:&nbsp;
-          <div style="font-size:14px;"><%= comment.content %></div>
-        </div>
-        <div style="font-size: 60%;"><%= comment.created_at.to_s(:datetime_jp) %></div>
-      </li>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% else %>

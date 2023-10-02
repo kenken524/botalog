@@ -2,6 +2,8 @@
   <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
   <%= form.hidden_field :commentable_id, value: commentable.id %>
 
+      <h5>コメント一覧</h5>
+
   <div class="p-3">
     <%= form.text_area :content, class: 'form-control' %>
   </div>

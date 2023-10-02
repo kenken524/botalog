@@ -101,6 +101,7 @@
       <% else %>
         <%= link_to 'ログインしてコメントする', new_user_session_path %>
       <% end %>
+      <div id="comments_error"></div>
       <div id="plant-comments">
       <%= render 'comments/comments', comments: @plant.comments %>
       </div>

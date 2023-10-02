@@ -1,7 +1,15 @@
 // コメント一覧を更新
 var plantcomments = document.getElementById('plant-comments');
-if (plantcomments) {
-  plantcomments.innerHTML = '<%= j(render partial: 'comments/comments', locals: { comments: @plant.comments }) %>';
-}
 
-window.scrollTo(0, document.body.scrollHeight);
+<% if @plant.comments.any? && @plant.comments.last.errors.empty? %>
+  // 最後のコメントがエラーがない場合にのみ追加
+  if (plantcomments) {
+    plantcomments.innerHTML += '<%= j(render partial: 'comments/comments', locals: { comments: [@plant.comments.last] }) %>';
+  }
+
+  // 画面を一番下にスクロール
+  window.scrollTo(0, document.body.scrollHeight);
+<% else %>
+  // エラー時の処理
+  console.error('コメントが保存されませんでした。');
+<% end %>

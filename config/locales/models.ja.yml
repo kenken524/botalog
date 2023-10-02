@@ -18,6 +18,8 @@ ja:
         plant: "植物"
         description: "説明"
         care_date: "記録日"
+      comment:
+        content: "コメント"
 
     errors:
       messages:
