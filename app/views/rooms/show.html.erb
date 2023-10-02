@@ -21,7 +21,6 @@
           <% end %>
         </div>
         <hr>
-
         <div id="messages-container" class="card-body bg-light" style="overflow-y: scroll; max-height: 70vh;">
           <div class="message-container">
             <% @messages.each do |m| %>
@@ -56,6 +55,11 @@
 
         <div class="dmMain">
           <%= form_for @message do |f| %>
+<% if flash[:alert].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
             <div class="input-group">
               <%= f.text_field :body, class: "form-control", placeholder: "メッセージを入力して下さい", size: 100 %>
               <%= f.hidden_field :room_id, value: @room.id %>

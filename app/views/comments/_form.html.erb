@@ -1,9 +1,11 @@
 <%= form_with(model: [commentable, Comment.new], url: polymorphic_path([commentable, :comments]), remote: true) do |form| %>
   <%= form.hidden_field :commentable_type, value: commentable.class.to_s %>
   <%= form.hidden_field :commentable_id, value: commentable.id %>
-
-      <h5>コメント一覧</h5>
-
+      <ul class="list-group">
+        <li class="list-group-item align-items-center">
+          <h5>コメント一覧</h5>
+        </li>
+      </ul>
   <div class="p-3">
     <%= form.text_area :content, class: 'form-control' %>
   </div>

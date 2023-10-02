@@ -20,6 +20,8 @@ ja:
         care_date: "記録日"
       comment:
         content: "コメント"
+      message:
+        body: "メッセージ"
 
     errors:
       messages:
