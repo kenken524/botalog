@@ -1,6 +1,6 @@
 class Plant < ApplicationRecord
   validates :image, :name, :description, :start_date, presence: true
-  validates :name, length: { maximum: 10, message: "は10文字以内です。" }
+  validates :name, length: { maximum: 15, message: "は15文字以内です。" }
   validates :description, length: { maximum: 500, message: "は500文字以内です。"}
 
   has_one_attached :image
