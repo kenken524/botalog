@@ -9,7 +9,8 @@
             <% end %>
             <div class="pt-2">
               <h6><%= comment.user.nickname %></h6>
-            </div>&nbsp;:&nbsp;
+            </div>
+            &nbsp;:&nbsp;
             <div style="font-size:14px;"><%= comment.content %></div>
           </div>
           <% if comment.created_at.present? %>
@@ -18,7 +19,4 @@
         </li>
       <% end %>
     <% end %>
-  </ul>
-<% else %>
-  <p>コメントはまだありません。</p>
-<% end %>
+  <% end %>
