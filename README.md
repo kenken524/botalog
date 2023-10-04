@@ -31,33 +31,33 @@ https://botalog.onrender.com/
 
 ## 植物登録、育成記録
 
-- トップページのヘッダーからユーザー新規登録をする。
-  [![Image from Gyazo](https://i.gyazo.com/204eca3ea8697febb1e3867c749548ea.gif)](https://gyazo.com/204eca3ea8697febb1e3867c749548ea)
+- トップページのヘッダーからユーザー新規登録をする。<br>
+  [![Image from Gyazo](https://i.gyazo.com/204eca3ea8697febb1e3867c749548ea/thumb/300#.gif)](https://gyazo.com/204eca3ea8697febb1e3867c749548ea)
 
-- トップページまたは、フッターの植物登録ボタンから現在育てている観葉植物、塊根植物、盆栽などを登録する。（ログイン必須）
-  [![Image from Gyazo](https://i.gyazo.com/7b8f35f1166974525b33c38caca29f34.gif)](https://gyazo.com/7b8f35f1166974525b33c38caca29f34)
+- トップページまたは、フッターの植物登録ボタンから現在育てている観葉植物、塊根植物、盆栽などを登録する。（ログイン必須）<br>
+  [![Image from Gyazo](https://i.gyazo.com/7b8f35f1166974525b33c38caca29f34/thumb/300#.gif)](https://gyazo.com/7b8f35f1166974525b33c38caca29f34)
 
-- トップページまたは、フッターの育成記録ボタンから登録した植物の育成記録を登録する。
-  [![Image from Gyazo](https://i.gyazo.com/94c4120f51469003b87d7e87f1331a2e.gif)](https://gyazo.com/94c4120f51469003b87d7e87f1331a2e)
+- トップページまたは、フッターの育成記録ボタンから登録した植物の育成記録を登録する。<br>
+  [![Image from Gyazo](https://i.gyazo.com/94c4120f51469003b87d7e87f1331a2e/thumb/300#.gif)](https://gyazo.com/94c4120f51469003b87d7e87f1331a2e)
 
-- 登録した植物や育成記録を写真一覧で見ることにより植物の成長を楽しむ。
-  [![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
+- 登録した植物や育成記録を写真一覧で見ることにより植物の成長を楽しむ。<br>
+  [![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e/thumb/300#.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
 
-  [![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
+  [![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef/thumb/300#.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
 
 ## ユーザーコミュニケーション
 
-- ユーザーをフォローしたり、投稿に対していいねやブックマークをする。
-  [![Image from Gyazo](https://i.gyazo.com/6e877c31c4a3012c171099f002408a73.gif)](https://gyazo.com/6e877c31c4a3012c171099f002408a73)
+- ユーザーをフォローしたり、投稿に対していいねやブックマークをする。<br>
+  [![Image from Gyazo](https://i.gyazo.com/6e877c31c4a3012c171099f002408a73/thumb/300#.gif)](https://gyazo.com/6e877c31c4a3012c171099f002408a73)
 
-- 投稿に対してコメントをする。
-  [![Image from Gyazo](https://i.gyazo.com/97b68b772b3a40277f9c8f57af4f4f7e.gif)](https://gyazo.com/97b68b772b3a40277f9c8f57af4f4f7e)
+- 投稿に対してコメントをする。<br>
+  [![Image from Gyazo](https://i.gyazo.com/97b68b772b3a40277f9c8f57af4f4f7e/thumb/300#.gif)](https://gyazo.com/97b68b772b3a40277f9c8f57af4f4f7e)
 
-- マイページで自身の投稿やブックマーク、フォローユーザー等が一覧表示される。
-  [![Image from Gyazo](https://i.gyazo.com/a1b391635a34b4b4dcf790309cf10492.gif)](https://gyazo.com/a1b391635a34b4b4dcf790309cf10492)
+- マイページで自身の投稿やブックマーク、フォローユーザー等が一覧表示される。<br>
+  [![Image from Gyazo](https://i.gyazo.com/a1b391635a34b4b4dcf790309cf10492/thumb/300#.gif)](https://gyazo.com/a1b391635a34b4b4dcf790309cf10492)
 
-- メッセージでコミュニケーションをとる。
-  [![Image from Gyazo](https://i.gyazo.com/0b65c604f006cb5c486979959c8576b9.gif)](https://gyazo.com/0b65c604f006cb5c486979959c8576b9)
+- メッセージでコミュニケーションをとる。<br>
+  [![Image from Gyazo](https://i.gyazo.com/0b65c604f006cb5c486979959c8576b9/thumb/300#.gif)](https://gyazo.com/0b65c604f006cb5c486979959c8576b9)
 
 # アプリケーションを作成した背景
 
