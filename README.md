@@ -24,7 +24,7 @@ https://botalog.onrender.com/
   ユーザー2
 - メールアドレス:testuser@test
 - パスワード:test1234
-  ※メッセージ、フォロー等、コミュニケーションのため2アカウントを用意しています。
+  <br>※メッセージ、フォロー等、コミュニケーションのため2アカウントを用意しています。
   新規でユーザー登録もできます。
 
 # 利用方法
@@ -44,6 +44,7 @@ https://botalog.onrender.com/
 [![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
 
 [![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
+[![Image from Gyazo](https://i.gyazo.com/6e877c31c4a3012c171099f002408a73.gif)](https://gyazo.com/6e877c31c4a3012c171099f002408a73)
 
 ## ユーザーコミュニケーション
 
