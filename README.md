@@ -71,11 +71,11 @@ https://docs.google.com/spreadsheets/d/1eD7ZiGhF3MCuHVAng_Yr95TcZNLPs6KZ-NXJPyaT
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/0f48794f2a698d34b24394d24657e957.png)](https://gyazo.com/0f48794f2a698d34b24394d24657e957)
+[![Image from Gyazo](https://i.gyazo.com/4bf1838abd3be0182acd2c8ded84d6d7/thumb/500#.png)](https://gyazo.com/4bf1838abd3be0182acd2c8ded84d6d7)
 
 # 画面遷移図
 
-[![Image from Gyazo](https://i.gyazo.com/63ca3bcb58adb3866ea5e2f7c4848946.png)](https://gyazo.com/63ca3bcb58adb3866ea5e2f7c4848946)
+[![Image from Gyazo](https://i.gyazo.com/e698f1b5352556d4c2e8e0f27d76183f/thumb/500#.png)](https://gyazo.com/e698f1b5352556d4c2e8e0f27d76183f)
 
 # 開発環境
 
