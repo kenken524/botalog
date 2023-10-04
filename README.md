@@ -31,17 +31,17 @@ https://botalog.onrender.com/
 
 ## 植物登録、育成記録
 
-1.  トップページのヘッダーからユーザー新規登録をする。
-    [![Image from Gyazo](https://i.gyazo.com/204eca3ea8697febb1e3867c749548ea.gif)](https://gyazo.com/204eca3ea8697febb1e3867c749548ea)
+トップページのヘッダーからユーザー新規登録をする。
+[![Image from Gyazo](https://i.gyazo.com/204eca3ea8697febb1e3867c749548ea.gif)](https://gyazo.com/204eca3ea8697febb1e3867c749548ea)
 
-2.  トップページまたは、フッターの植物登録ボタンから現在育てている観葉植物、塊根植物、盆栽などを登録する。（ログイン必須）
-    [![Image from Gyazo](https://i.gyazo.com/7b8f35f1166974525b33c38caca29f34.gif)](https://gyazo.com/7b8f35f1166974525b33c38caca29f34)
+トップページまたは、フッターの植物登録ボタンから現在育てている観葉植物、塊根植物、盆栽などを登録する。（ログイン必須）
+[![Image from Gyazo](https://i.gyazo.com/7b8f35f1166974525b33c38caca29f34.gif)](https://gyazo.com/7b8f35f1166974525b33c38caca29f34)
 
-3.  トップページまたは、フッターの育成記録ボタンから登録した植物の育成記録を登録する。
-    [![Image from Gyazo](https://i.gyazo.com/94c4120f51469003b87d7e87f1331a2e.gif)](https://gyazo.com/94c4120f51469003b87d7e87f1331a2e)
+トップページまたは、フッターの育成記録ボタンから登録した植物の育成記録を登録する。
+[![Image from Gyazo](https://i.gyazo.com/94c4120f51469003b87d7e87f1331a2e.gif)](https://gyazo.com/94c4120f51469003b87d7e87f1331a2e)
 
-4.  登録した植物や育成記録を写真一覧で見ることにより植物の成長を楽しむ。
-    [![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
+登録した植物や育成記録を写真一覧で見ることにより植物の成長を楽しむ。
+[![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
 
 [![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
 
