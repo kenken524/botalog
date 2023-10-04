@@ -42,7 +42,8 @@ https://botalog.onrender.com/
 
 4.  登録した植物や育成記録を写真一覧で見ることにより植物の成長を楽しむ。
     [![Image from Gyazo](https://i.gyazo.com/953e71b10a505250c73ba16bc443d54e.gif)](https://gyazo.com/953e71b10a505250c73ba16bc443d54e)
-    [![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
+
+[![Image from Gyazo](https://i.gyazo.com/22434a1417f463853786879f5891f5ef.gif)](https://gyazo.com/22434a1417f463853786879f5891f5ef)
 
 ## ユーザーコミュニケーション
 
